@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<body id="js-contact" class="contact">
+    @Html.Partial("Navigation")
+    <div class="formulaireContact">
+        <label for="mail">Adresse email</label>
+        <input id="mail" type="text">
+
+        <label for="sujet">Sujet</label>
+        <input id="sujet" type="text">
+
+        <label for="message">Message</label>
+        <input id="message" type="text">
+
+        <input class="formulaireContact-bouton" type="submit" value="Envoyer">
+    </div>
+    {{> footer}}

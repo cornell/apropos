@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "Qui sommes nous";
+}
+<body id="js-quiSommesNous" class="quiSommesNous">
+    <div class="wrapper">
+        @Html.Partial("Navigation")
+        <div class="quiSommesNous-body">
+            <!--<div class="quiSommesNous-header-container">-->
+            <div class="quiSommesNous-header clearfix">
+                <svg class="quiSommesNous-logo" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 500 500">
+                    <g>
+                        <path d="M351.263 27.75c-5.552-1.413-5.64 1.426 1.475 8.945 14.366 16.757 13.2 15.375 18.676 21.395 6.583 8.058 15.112 20.846 23.86 34.946 17.498 28.2 35.876 61.672 41.327 73.2 7.47 15.797 12.593 31.37 15.567 47.81s3.796 33.74 2.672 53.02c-.796 13.614-2.697 26.713-5.544 38.916-2.847 12.203-6.636 23.52-11.206 33.583-4.57 10.064-9.923 18.883-15.885 26.08-5.96 7.198-12.53 12.778-19.553 16.382-4.847 2.487-10.594 4.22-16.736 5.24-6.14 1.015-12.686 1.31-19.14.93-6.456-.38-12.824-1.47-18.61-3.203-5.788-1.738-10.99-4.142-15.128-7.172-9.287-6.797-19.265-16.213-28.433-26.953-9.167-10.74-17.53-22.806-23.594-34.868-3.03-6.03-5.493-12.06-7.19-17.93-1.697-5.87-2.63-11.58-2.62-16.963.003-1.133.552-2.042.64-3.138-16.692 33.965-13.812 75.546 10.633 110.543 28.272 40.474 88.72 55.976 134.468 34.482 46.498-21.845 77.744-79.654 82.55-152.725 5.864-89.206-39.08-176.103-116.923-226.02-14.732-9.446-25.753-15.09-31.304-16.5z"
+                              fill="#DDD"></path>
+                        <path d="M234.513.08c-30.006.9-62.973 9.488-95.96 25.684C58.014 65.31 4.897 147.504.39 239.57c-1.705 34.847 2.376 49.276 8.335 29.494 4.35-10.518 7.632-21.172 9.278-26.796 3.72-9.704 10.57-23.436 18.464-38.03 15.784-29.183 35.723-61.768 43.028-72.233 10.008-14.337 21-26.544 33.816-37.328 12.817-10.784 27.463-20.15 44.797-28.82 12.242-6.122 24.58-11.027 36.622-14.674 12.04-3.647 23.772-6.04 34.812-7.132 11.04-1.088 21.384-.88 30.626.66 9.243 1.543 17.387 4.416 24.033 8.67 4.588 2.934 8.978 7.017 12.935 11.802 3.957 4.785 7.48 10.278 10.368 16.037 2.89 5.76 5.133 11.78 6.514 17.637 1.38 5.86 1.908 11.552 1.342 16.634-1.27 11.407-4.493 24.717-9.252 37.99-4.76 13.274-11.07 26.505-18.53 37.765-3.73 5.63-7.745 10.765-12.004 15.164-4.258 4.397-8.75 8.062-13.438 10.743-.98.56-2.05.54-3.044 1.014 37.89-2.594 72.618-25.87 90.84-64.44 21.078-44.61 4.33-104.476-37.245-133.168C291.56 5.977 264.52-.82 234.513.074z"
+                              fill="#DDD" fill-opacity=".933"></path>
+                        <path d="M111.955 212.973c-49.348 4.135-93.06 48.5-97.235 98.685-4.243 51.007 30.43 106.85 91.6 147.525 74.674 49.66 172.737 54.35 255.085 12.2 31.17-15.953 41.684-26.68 21.494-21.925-19.72 3.693-12.322 2.318-21.482 3.956-7.953 1.838-19.47 3.554-34.082 4.763-14.613 1.206-31.718 1.934-48.997 1.84-17.28-.15-34.733-1-50.074-3.043-17.384-2.317-33.49-5.687-49.302-11.13-7.907-2.72-15.74-5.958-23.62-9.843-7.884-3.885-15.823-8.417-23.928-13.72-11.448-7.494-21.885-15.687-31.078-24.243-9.193-8.555-17.137-17.48-23.608-26.45-6.47-8.972-11.46-17.99-14.742-26.73-3.28-8.737-4.856-17.192-4.48-25.047.26-5.423 1.618-11.24 3.803-17.045 2.185-5.803 5.194-11.592 8.76-16.963 3.567-5.37 7.69-10.316 12.097-14.435 4.406-4.12 9.093-7.41 13.797-9.462 10.558-4.607 23.744-8.5 37.672-11.035 13.927-2.534 28.598-3.713 42.124-2.912 6.763.4 13.24 1.31 19.195 2.78 5.955 1.472 11.394 3.52 16.07 6.22.983.57 1.506 1.503 2.42 2.13-21.202-31.38-58.815-49.692-101.49-46.115z"
+                              fill="#DDD" fill-opacity=".933"></path>
+                    </g>
+                </svg>
+                <div class="quiSommesNous-logo-texte">
+                    <div class="u-strong u-uppercase">A PROPOS</div>
+                    <div>
+                        <span class="u-strong u-uppercase">a</span>ssociation de <span class="u-strong u-uppercase">p</span>révention
+                        et de <span class="u-strong u-uppercase">R</span>echerche en <span class="u-strong u-uppercase">O</span>rthophonie
+                        ...
+                    </div>
+                    <div>
+                        <span class="u-strong u-uppercase">p</span>rogrammes <span class="u-strong u-uppercase">o</span>rthophoniques
+                        d'éducation à la <span class="u-strong u-uppercase">s</span>anté
+                    </div>
+                </div>
+            </div>
+            <!--</div>-->
+            <p class="quiSommesNous-presentation">
+                L'association a vu le jour en juin 2011 à l’initiative de 5 orthophonistes bretons, désireux de promouvoir la prévention,
+                partie intégrante du champ d’intervention des orthophonistes depuis son inscription officielle en 1992 dans
+                notre décret de compétence.
+            </p>
+            <p>Nombre d’entre nous sont ou seront sollicités pour réaliser des actions, des missions de prévention sur le terrain.</p>
+            <p>
+                A Propos, <span class="u-strong">ouvert à tous les orthophonistes</span>, constitue un point d’appui institutionnel
+                et logistique pour mener à bien ces actions.
+            </p>
+            <h2>Les objectifs</h2> Ils couvrent les 3 axes suivants:
+            <p>
+                <ul>
+                    <li class="quiSommesNous-objectif">
+                        <a class="quiSommesNous-objectif--titre" href="/prevention">Prévention</a>
+                        <div class="quiSommesNous-objectif--description">faciliter la mise en œuvre de la prévention des pathologies du langage et de la communication ...</div>
+                    </li>
+                    <li class="quiSommesNous-objectif">
+                        <a class="quiSommesNous-objectif--titre" href="/recherche">Recherche</a>
+                        <div class="quiSommesNous-objectif--description">
+                            Aider les orthophonistes à élaborer ou à collaborer à des projets de recherche et favoriser la publication
+                            de nouveaux résultats avec le concours de chercheurs universitaires
+                        </div>
+                    </li>
+                    <li class="quiSommesNous-objectif">
+                        <a class="quiSommesNous-objectif--titre" href="/formation">Formation</a>
+                        <div class="quiSommesNous-objectif--description">Proposer des formations professionnelles en tant qu’organisme de formation</div>
+                    </li>
+                </ul>
+            </p>
+
+            <a href="/adhesion">
+                <button class="btn-adhesion">Adhérer à l'association</button>
+            </a>
+
+            <div class="MembreAssociation-list">
+                <h2 class="MembreAssociationList-titre">Les Membres du bureau</h2>
+                <h3 class="MembreAssociation-titre">Présidente<span class="MembreAssociation-annee"></span></h3>
+                <div class="MembreAssociation">
+                    <span class="imageAvatar imageAvatar-01 imageAvatar-association"></span>
+                    <div class="MembreAssociation-description">
+                        <div class="MembreAssociation-nomComplet">Hélène Le Roux</div>
+                        <div class="MembreAssociation-adresse">
+                            <div>Orthophoniste</div><div>3 allée du stade</div><div>22680 Etables/Mer</div>
+                        </div>
+                        <p>DU "rééducation et réadaptation des fonctions auditives de l'adulte".</p>
+                        <p>Formatrice en surdités, aphasies et maladies neuro-dégénératives.</p>
+                        <p>Conceptrice de logiciels d'évaluation et de rééducation dans le domaine sensoriel.</p>
+                    </div>
+                </div>
+                <h3 class="MembreAssociation-titre">Secrétaire<span class="MembreAssociation-annee"></span></h3>
+                <div class="MembreAssociation">
+                    <span class="imageAvatar imageAvatar-03 imageAvatar-association"></span>
+                    <div class="MembreAssociation-description">
+                        <div class="MembreAssociation-nomComplet">Kristell Bourdin</div>
+                        <div class="MembreAssociation-adresse">
+                            <div>Orthophoniste</div><div>8 rue Lamennais</div><div>22100 Dinan</div>
+                        </div>
+                        <p>Formatrice en rééducation vocale, prévention des troubles vocaux et prévention des troubles du langage.</p>
+                    </div>
+                </div>
+                <h3 class="MembreAssociation-titre">Secrétaire adjointe</h3>
+                <div class="MembreAssociation">
+                    <span class="imageAvatar imageAvatar-05 imageAvatar-association"></span>
+                    <div class="MembreAssociation-description">
+                        <div class="MembreAssociation-nomComplet">Muriel Rio-Fiorina</div>
+                        <div class="MembreAssociation-adresse">
+                            <div>Orthophoniste</div><div>8 rue Lamennais</div><div>22100 Dinan</div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="MembreAssociation-titre">Trésorière</h3>
+                <div class="MembreAssociation">
+                    <span class="imageAvatar imageAvatar-03 imageAvatar-association"></span>
+                    <div class="MembreAssociation-description">
+                        <div class="MembreAssociation-nomComplet">Blandine Le Pape</div>
+                        <div class="MembreAssociation-adresse">
+                            <div>Orthophoniste</div><div>8 rue Lamennais</div><div>22100 Dinan</div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="MembreAssociation-titre">Membres du conseil d'administration</h3>
+                <div class="MembreAssociation">
+                    <span class="imageAvatar imageAvatar-06 imageAvatar-association"></span>
+                    <div class="MembreAssociation-description">
+                        <div class="MembreAssociation-nomComplet">Carole Le Gaillard</div>
+                        <div class="MembreAssociation-adresse">
+                            <div>Orthophoniste</div><div>42B rue du Port</div><div>22530 Mûr De Bretagne</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="MembreAssociation">
+                    <span class="imageAvatar imageAvatar-04 imageAvatar-association"></span>
+                    <div class="MembreAssociation-description">
+                        <div class="MembreAssociation-nomComplet">Amandine Lemière</div>
+                        <div class="MembreAssociation-adresse">
+                            <div>Orthophoniste</div><div>28 av Charles De Gaulles</div><div>35410 Domloup</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>

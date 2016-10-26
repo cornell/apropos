@@ -1,0 +1,23 @@
+.membreBureau-conteneur {
+    display: inline-block;
+    vertical-align: top;
+    width: 85%;
+}
+
+.membreBureau-nom {
+    font-size: 18px;
+    color: $color-font-primary;
+    line-height: 1.1;
+}
+
+.membreBureau-detail {
+    margin-top: 10px;
+}
+
+.membreBureau-image {
+    width: 100px;
+    height: 100px;
+    margin-left: -15px;
+/*    border-radius: 50%;*/
+/*    border: solid 1px lightgray;*/
+}

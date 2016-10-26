@@ -1,0 +1,15 @@
+﻿@model List<ArticleView>
+@{
+    ViewBag.Title = "Recherche";
+}
+<body id="js-recherche" class="recherche">
+    <div class="wrapper">
+        @Html.Partial("Navigation")
+        @Html.Partial("Axes/AxeRecherche")
+        <div class="grid-2 grid-article">
+            @foreach (var article in Model)
+            {
+                @Html.Partial("Articles/ArticleResumeRecherche", article)
+            }
+        </div>
+

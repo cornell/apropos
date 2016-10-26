@@ -1,0 +1,72 @@
+.navIcon-container {
+    height: 54px;
+    background-color: #fff;
+    transition: height .3s;
+}
+
+.navIcon-label {
+    font-variant: small-caps;
+}
+
+.navIcon{
+    position: relative; 
+    z-index: 1;
+    width: 54px;     
+    height: 54px;
+    right: 0;
+    float: right;
+    cursor: pointer;    
+    transition: transform 0.5s;
+}
+
+.navIcon-container--hide {
+    height: 0;
+}
+
+.navIcon--inactive {
+    display: none;
+}
+
+.navIcon span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%); 
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #000;
+    transition: background 0.5s;
+}
+
+.navIcon span::before, .navIcon span::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-6px);
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #000;
+    transition: transform 0.5s;
+}
+.navIcon span::after {
+    transform: translateY(6px); 
+}
+
+.navIcon.is-opened { 
+    transform: rotate(180deg); 
+}
+
+.navIcon.is-opened span { 
+    background: transparent; 
+}
+
+.navIcon.is-opened span::before { 
+    transform: translateY(0) rotate(45deg); 
+}
+
+.navIcon.is-opened span::after { 
+    transform: translateY(0) rotate(-45deg); 
+}

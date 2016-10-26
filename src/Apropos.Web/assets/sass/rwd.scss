@@ -1,0 +1,125 @@
+@media only screen and (min-width: 510px) {
+          
+    .site-content {
+        padding-top: 66px;
+    }
+        
+    .body-header//,
+    // .axePrevention,
+    // .axeRecherche,
+    // .axeFormation
+    {
+        padding: 10px 25px;
+    }
+            
+    .footer {
+	   height: 95px !important; /* change to .articleDetail */
+    }
+    
+    .footerNav {
+        display: flex;      
+        text-align: center;
+        width: 481px;
+        margin: 0 auto;
+    }
+ 
+    .footerNav-separator {
+       display: none !important;
+    }
+       
+    .footerSocial-facebook {
+        margin-left: 20px;
+    }
+       
+    .footerSocial-contact {
+        display: block;
+    }
+
+    .l-logo {
+        float: left;
+        width: 193px;
+    }
+
+    .l-logo:nth-child(2n) {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .logo-description {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 860px) {
+
+    .logo-container {
+        right: auto;
+        left: 20px;
+    }    
+        
+    .header__icon,
+    .header__logo {
+        display: none;
+    }    
+    
+    .menu {
+        position: static;
+        transform: none;
+        width: auto;  
+        background-color: inherit; 
+        transition-duration: initial;    
+        margin-left: 60px;
+    }	
+    			
+	.grid-2 {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-left: -20px;
+	}
+	.grid-2 > div {
+		flex: 0 0 auto;
+		width: calc(50% - 20px); 
+		margin-left: 20px;
+	}
+	
+	.grid-2 > div:first-child {
+		width: calc(100% - 20px); 
+	}	
+	
+	.grid-axe {
+		display: flex;
+		flex-direction: row;
+		padding: 20px 20px 0;
+		margin-left: -20px; 
+	}
+	
+	.grid-axe > div {
+		flex: 0 0 auto;
+		width: calc(33.333% - 20px); 
+		margin-left: 20px;
+	}
+
+	.articleResume {
+		border-top: 1px solid $color-article-border;
+		border-left: 1px solid $color-article-border;
+		border-right: 1px solid $color-article-border;
+		margin-bottom: 20px;
+	}
+    	
+	.grid-article {
+		padding: 20px;
+	}
+	
+	.axePrevention {
+		border: solid 1px $color-prevention-dark;
+	}
+	
+	.axeRecherche {
+		border: solid 1px $color-recherche-dark;
+	}
+	
+	.axeFormation {
+		border: solid 1px $color-formation-dark;
+	}    
+}

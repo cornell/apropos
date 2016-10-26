@@ -1,0 +1,116 @@
+@import "../vendor/normalize.scss";
+@import "../vendor/base.scss";
+@import "../vendor/suitcss/display.scss";
+@import "couleur.scss";
+@import "logo.scss";
+@import "font.scss";
+@import "icon.scss";
+
+
+html, body {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+html {
+    font-family: 'regular', sans-serif;
+    line-height: 1.6rem;
+    color: $color-font-primary;
+}
+
+body {
+    background-color: $color-bg-body;  
+    position:relative;
+    min-height: 100%;
+          
+}
+
+.wrapper {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 150px;
+    overflow-x: hidden;
+}
+
+ol, ul {
+    margin-left: 10px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 21px;
+    line-height: 1.1;
+}
+
+h2 {
+    margin-top: 30px;
+    font-size: 1.3em;
+}
+
+h3 {
+    margin-top: 15px;
+    font-size: 1.1em;
+    font-variant: all-petite-caps;
+}
+
+p {
+    margin-top: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+a.readmore:hover{
+    text-decoration: none;
+}
+
+.quiSommesNous-objectif a:hover::after,
+a.readMore:hover::after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    border-width: 0 0 1px;
+    border-style: solid;
+}
+
+.clearfix:after { 
+  content: "";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+@import "accueil.scss";
+@import "nav.scss";
+@import "nav-icon.scss";
+@import "article.scss";
+@import "article-detail.scss";
+@import "apropos.scss";
+@import "axe.scss";    
+@import "qui-sommes-nous.scss";
+@import "footer.scss";
+@import "utilities.scss";
+@import "inscription-et-tarif.scss";
+@import "post.scss";
+@import "rwd.scss";
+@import "photo.scss";
+@import "formation.scss";
+/*@import "../vendor/photoswipe/photoswipe.scss";
+@import "../vendor/photoswipe/default-skin/default-skin.scss";*/

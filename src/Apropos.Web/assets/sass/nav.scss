@@ -1,0 +1,224 @@
+.nav {
+	background-color: white;
+	// border-bottom: solid 1px $color-article-border;
+	line-height: 2.5rem;
+	color: $color-article-border;
+}
+
+.nav--hidden {
+	position: absolute;
+	width: 100%;	
+	top: -300px;
+}
+
+.nav-accueil > div,
+.nav-adhesion > div,
+.nav-prevention > div,
+.nav-recherche > div,
+.nav-formation > div {
+    padding-left: 20px;  
+}
+
+.nav-accueil--active > div,
+.nav-adhesion--active > div {
+    border-right: 4px solid $color-font-primary;
+    background-color: $color-bgc-button;
+}
+
+.nav-prevention--active > div {
+    border-right: 4px solid $color-prevention;
+    background-color: $color-bgc-button;
+}
+
+.nav-formation--active > div {
+    border-right: 4px solid $color-formation;
+    background-color: $color-bgc-button;
+}
+
+.nav-recherche--active > div {
+    border-right: 4px solid $color-recherche;
+    background-color: $color-bgc-button;
+}
+
+.nav-logo {
+    position: relative;
+    border-bottom: 3px solid hsl(0, 0%, 100%);
+}
+
+.nav-accueil,
+.nav-adhesion {
+	border-bottom: 3px solid white;
+	transition: color 300ms ease-in-out 0s;
+}
+
+.nav-accueil:hover,
+.nav-accueil--active,
+.nav-contact:hover,
+.nav-contact--active,
+.nav-adhesion:hover,
+.nav-adhesion--active {
+	border-bottom: solid 3px $color-font-primary;
+	color: $color-font-primary;	
+}
+
+.nav-prevention {
+	border-bottom: 3px solid white;
+	transition: color 300ms ease-in-out 0s;
+	
+}
+
+.nav-prevention:hover,
+.nav-prevention--active {
+	border-bottom: solid 3px $color-prevention;
+	color: $color-font-primary;	
+}
+
+.nav-recherche {
+	border-bottom: 3px solid white;
+	transition: color 300ms ease-in-out 0s;
+}
+
+.nav-recherche:hover,
+.nav-recherche--active {
+	border-bottom: solid 3px $color-recherche;
+	color: $color-font-primary;	
+}
+
+.nav-formation {
+	border-bottom: 3px solid white;
+	transition: color 300ms ease-in-out 0s;
+}
+
+.nav-formation:hover,
+.nav-formation--active {
+	border-bottom: solid 3px $color-formation;
+	color: $color-font-primary;	
+}
+
+.logo-apropos {
+    background: url(../assets/images/logo-apropos-56.png) no-repeat;
+    position: absolute;
+    margin-left: 25px;
+}
+
+/* -------------------------------------------------- */
+
+.site-container, .pusher {
+    height: 100%;
+}
+
+.pusher {
+    transition-duration: .3s;
+    transform: translateX(1);
+    height: 100%;
+}
+
+.header{
+    left: 0;
+    right: 0;
+    height: 3.55rem;
+    // line-height: 66px;
+    background-color: #FFF;
+    border-bottom: solid 1px $color-article-border;
+}
+
+.header__icon {
+    position: relative;
+    display: block;
+    width: 54px;
+    height: 34px;
+    background-color: hsla(0, 0%, 100%, .5);
+    cursor: pointer;
+}
+
+.header__icon::after {
+    content: '';
+    position: absolute;
+    // display: block;
+    width: 1.4rem;
+    height: 0;
+    top: 15px;
+    right: 23px;
+    box-shadow: 0 0 0 1px #000, 0 7px 0 1px #000, 0 14px 0 1px #000;
+}
+
+.header__logo {
+    color: #000;
+    top: -3px;
+    left: 5px;
+}
+
+.site-content {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 0;
+    -webkit-overflow-scrolling: touch; /* safari */
+}
+
+.menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 180px;
+    transform: translateX(-180px);
+}
+
+.width-sidebar .pusher {
+    transform: translateX(180px);
+}
+
+.width-sidebar .site-cache {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.container {
+    margin: 0 10px;
+}
+
+@media only screen and (min-width: 860px) {
+    
+    .nav {
+		text-align: center;
+        height: 3.5rem;
+		line-height: 3.5rem;
+		display: flex;
+		flex-direction: row;
+	}
+	
+	.nav-item {
+		flex: 0 0 auto;
+		width: 16.666%;   
+        padding-left: 0;  
+	}
+    
+    .nav-item > div {    
+        // border-right: 4px solid rgb(106, 169, 79);
+        // background-color: rgb(239, 239, 239) none repeat scroll 0% 0%;
+        border-right: none;
+        background: medium none currentColor;    
+        // padding-left: 0;  
+    }
+    
+    .nav-accueil > div,
+    .nav-adhesion > div,
+    .nav-prevention > div,
+    .nav-recherche > div,
+    .nav-formation > div {
+        padding-left: 0;  
+    }
+    
+    .nav-accueil--active > div,
+    .nav-adhesion--active > div,
+    .nav-prevention--active > div,
+    .nav-formation--active > div,
+    .nav-recherche--active > div {
+        background-color: transparent;
+    }    
+}

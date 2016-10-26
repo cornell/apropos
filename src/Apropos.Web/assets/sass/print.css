@@ -1,0 +1,33 @@
+@media print {
+  
+  p, blockquote {
+    orphans: 3; /* pas de ligne seule en bas */
+    widows: 3; /* pas de ligne seule en haut */
+  }
+  blockquote, ul, ol {
+    page-break-inside: avoid; /* pas de coupure dans ces élements */
+  }
+  h1 {
+    page-break-before: always; /* chaque titre commence sur une nouvelle page */
+  }
+  h1, h2, h3, caption {
+    page-break-after: avoid; /* pas de saut après ces éléments */
+  }
+ 
+  a {
+    color: #000!important;
+    text-decoration: underline!important;
+  }
+ 
+  
+  .articleDetail {
+    padding: 0;
+  }
+  
+  .axePrevention,
+  .axeRecherche, 
+  .axeFormation,
+  .navIcon-container {
+    display: none;
+  }
+}

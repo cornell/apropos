@@ -1,0 +1,48 @@
+﻿@model Article
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Article</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+        <div class="form-group">
+            <label asp-for="Axe" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Axe" class="form-control" />
+                <span asp-validation-for="Axe" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Date" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Titre" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Titre" class="form-control" />
+                <span asp-validation-for="Titre" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+    <div>
+        <a asp-action="Index">Retour à la liste</a>
+    </div>

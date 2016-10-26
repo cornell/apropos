@@ -1,0 +1,11 @@
+.prevention .post,
+.recherche .post,
+.formation .post {
+    margin: 0;
+}
+
+.post .axePrevention,
+.post .axeRecherche,
+.post .axeFormation {
+    display: none;
+}

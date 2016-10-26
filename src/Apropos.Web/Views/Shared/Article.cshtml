@@ -1,0 +1,24 @@
+﻿@model ArticleView
+@{
+    ViewBag.Title = Model.Titre;
+}
+<body id="js-@Model.AxeCss" class="@Model.AxeCss post" style="background-color:white">
+    <div class="wrapper">
+        @Html.Partial("Navigation")
+        @if (Model.IsAxePrevention){ @Html.Partial("Axes/AxePrevention") }
+        @if (Model.IsAxeRecherche) { @Html.Partial("Axes/AxeRecherche") }
+        @if (Model.IsAxeFormation){ @Html.Partial("Axes/AxeFormation") }
+        <article class="article-@Model.AxeCss articleDetail">
+            @Html.Partial("Articles/ArticleInfo")
+            @Html.Partial("Photos")
+            @Html.Raw(@Model.ContenuHtml)
+            @if (Model.IsAxeFormation) {
+            @Html.Partial("Articles/InscriptionTarif")
+            <h2>Documents annexes</h2>
+            <p>
+                <a href="../../assets/documents/reglement-interieur-formation-apropos.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">réglement intérieur formation "a propos"</span></a>
+                <div class="pdf-nomFichier">reglement-interieur-formation-apropos.pdf</div>
+            </p>
+            }
+        </article>
+

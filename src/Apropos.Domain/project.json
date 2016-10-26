@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0-*",
+
+    "dependencies": {
+      "Apropos.Core": "1.0.0-*",
+      "Markdig": "0.8.5",
+      "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0",
+      "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
+      "Microsoft.NETCore.App": {
+        "version": "1.0.0",
+        "type": "platform"
+      },
+        "YamlDotNet": "3.9.0"
+    },
+
+    "frameworks": {
+        "netcoreapp1.0": {
+            "imports": "dnxcore50"
+        }
+    }
+}

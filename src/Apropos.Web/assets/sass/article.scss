@@ -1,0 +1,109 @@
+/* --------------------------------------------------------
+    $ARTICLE
+   ------------------------------------------------------*/
+.articleResume,
+.membreBureau {
+    border-bottom: solid 1px $color-article-border;
+    background-color: $color-bg-article;    
+    padding: 20px 10px;
+}
+
+.article-titre,
+.membreBureau-fonction{
+    font-size: 21px;    
+    line-height: 1.1;
+}
+
+.article-sousTitre{
+    font-size: 15px;    
+    display: inline-block;
+}
+
+.article-info {
+    font-size: .9rem;
+    color: $color-font-secondary;
+}
+
+.articleResume-contenu {
+    margin-top: 10px;
+    position: relative;
+}
+
+.accueil .articleResume-prevention {
+    border-left: solid 5px $color-prevention-dark !important;
+}
+
+.accueil .articleResume-recherche {
+    border-left: solid 5px $color-recherche-dark !important;
+}
+
+.accueil .articleResume-formation {
+    border-left: solid 5px $color-formation-dark !important;
+}
+
+.article-date {
+    display: inline-block;
+}
+
+.article-lieu {
+    display: inline-block;
+}
+
+.ellipsis {
+/*  white-space: nowrap;*/
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+.article-lien {
+    color: #3498db;
+    bottom: 0;
+    float: right;
+    margin-right: 50px;
+}
+
+.article-lien-logo {
+    color: #3498db;
+    margin-top: 2px;
+    display: inline-block;
+    margin-top: 3px;
+    vertical-align: top;
+}
+
+.u-mlxs {
+    margin-left: 5px;
+}
+
+.u-mls {
+    margin-left: 10px;
+}
+
+.u-mlm {
+    margin-left: 20px;
+}
+
+.readMore {
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: .9em;
+}
+
+.pdf-descriptionFichier {
+    margin-left: 10px;    
+}
+
+.pdf-nomFichier {
+    font-size: 0.75rem;
+    margin-left: 24px;
+    margin-top: -5px;
+    color: $color-font-secondary;
+}
+
+@media only screen and (min-width: 510px) {
+    
+    .articleResume,
+    .membreBureau {
+        padding: 20px 25px;
+    }  
+}

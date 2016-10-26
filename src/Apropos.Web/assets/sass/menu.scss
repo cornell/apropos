@@ -1,0 +1,190 @@
+.container > section {
+	font-size: 1.25em;
+	min-height: 100%;
+}
+
+
+/* Default tab style */
+
+.tabs {
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 100%;
+/*
+	font-weight: 300;
+	font-size: 1.25em;
+*/
+}
+
+/* Nav */
+.tabs nav {
+	text-align: center;
+}
+
+.tabs nav ul {
+	position: relative;
+	display: flex;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 1200px;
+	list-style: none;
+}
+
+.tabs nav ul li {
+	position: relative;
+	z-index: 1;
+	display: block;
+	margin: 0;
+	text-align: center;
+	flex: 1;
+}
+
+.tabs nav a {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;	
+    height: 60px;
+}
+
+.tabs nav a span {
+	vertical-align: middle;
+/*	font-size: 0.75em;*/
+}
+
+.tabs nav li.tab-current a {
+	color: #74777b;
+}
+
+.tabs nav a:focus {
+	outline: none;
+}
+
+/* Content */
+.content-wrap {
+	position: relative;
+}
+
+.content-wrap section {
+	display: none;
+	margin: 0 auto;
+/*	padding: 1em;*/
+	max-width: 1200px;
+	text-align: center;
+}
+
+.content-wrap section.content-current {
+	display: block;
+}
+
+.content-wrap section p {
+	margin: 0;
+	padding: 0.75em 0;
+	color: rgba(40,44,42,0.05);
+	font-weight: 900;
+	font-size: 4em;
+	line-height: 1;
+}
+
+
+
+/*****************************/
+/* Moving Line */
+/*****************************/
+
+.tabs-style-linemove nav {
+	background: color-bg-article;
+}
+
+.tabs-style-linemove nav li:last-child::before {
+	content: '';
+	height: 4px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: hsl(0,0%,30%);
+	transition: transform 0.3s;
+}
+
+.tabs-style-linemove nav li:first-child.tab-current ~ li:last-child::before {
+	transform: translate3d(-500%,0,0);
+}
+
+.tabs-style-linemove nav li:nth-child(2).tab-current ~ li:last-child::before {
+	transform: translate3d(-400%,0,0);
+}
+
+.tabs-style-linemove nav li:nth-child(3).tab-current ~ li:last-child::before {
+	transform: translate3d(-300%,0,0);
+}
+
+.tabs-style-linemove nav li:nth-child(4).tab-current ~ li:last-child::before {
+	transform: translate3d(-200%,0,0);
+}
+
+.tabs-style-linemove nav li:nth-child(5).tab-current ~ li:last-child::before {
+	transform: translate3d(-100%,0,0);
+}
+
+.tabs-style-linemove nav a {
+	padding: 1em 0;
+	color: $color-font-primary;
+	line-height: 1.8em;
+	transition: color 0.3s, transform 0.3s;
+}
+
+.tabs-style-linemove nav li.tab-current a {
+	color: $color-font-primary;
+/*	transform: translate3d(0,8px,0);*/
+}
+
+.tabs-style-linemove nav a span {
+	font-weight: 700;
+}
+
+
+/* --------------------------------------------------------
+    $MENU
+   ------------------------------------------------------*/
+.menu{
+    padding-top: 20px;
+/*    font-variant: small-caps;*/
+    margin-left: auto;
+    margin-right: auto;    
+    text-align: center;
+    font-family: 'font-semibold';
+    font-size: 20px;
+}
+
+.menu a {
+    padding: 0 10px;
+}
+
+/*
+.menu a:hover {
+    color: #c6ff00;
+}
+*/
+
+.menu-item {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 3px;
+}
+
+.menu-item:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 3px;
+	width: 0px;
+	background: transparent;
+	transition: width .3s ease, background-color .3s ease;
+}
+.menu-item:hover:after {
+	width: 100%;
+	background: lightgray;
+}

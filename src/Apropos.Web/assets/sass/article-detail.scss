@@ -1,0 +1,45 @@
+.articleDetail {
+    background-color: $color-bg-article;    
+    padding: 20px 10px;
+    max-width: 40em;
+    left: 0px;
+    right: 0px;
+    margin: auto;    
+}
+
+.articleDetail h2 {
+    margin-top: 30px;
+/*    font-size: 1.3em;*/
+}
+
+.articleDetail h3 {
+    margin-top: 15px;
+/*    font-size: 1.1em;
+    font-variant: all-petite-caps;*/
+}
+
+.articleDetail p {
+    margin-top: 15px;
+}
+
+.articleDetail-adresse,
+.articleDetail-inscription {
+    margin-left: 10px;
+    font-size: .9em;
+}
+
+
+.article-prevention a {
+    color: $color-prevention-dark;
+}
+
+.article-recherche a {
+    color: $color-recherche-dark;
+}
+
+@media screen and (min-width: 860px) {
+    
+    .articleDetail {
+        margin-top: 20px;
+    }   
+}

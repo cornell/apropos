@@ -1,0 +1,42 @@
+﻿@model ArticleView
+<div class="inscriptionTarif">
+    <h2>Inscription et tarifs</h2>
+    <p>Veuillez nous retourner le contrat ou la convention correspondant à votre situation, signé, accompagné du chèque de réservation et de l’enveloppe timbrée à votre nom et adresse (seuls les dossiers complets seront retenus)</p>
+    <h3>Adresse</h3>
+    <div>
+        @if(Model.Organisateur == "organisateur-hlr") { 
+        <div class="articleDetail-adresse">Hélène Le Roux<br>3 allée du stade<br>22680 Etables-sur-Mer</div>
+        }
+        @if (Model.Organisateur == "organisateur-kb") {
+        <div class="articleDetail-adresse">Kristell Bourdin<br>8 rue Lamennais<br>22100 Dinan</div>
+        }
+        @if (Model.Organisateur == "organisateur-mrf") {
+        <div class="articleDetail-adresse">Muriel Rio-Fiorina<br>8 rue Lamennais<br>22100 Dinan</div>
+        }
+    </div>
+    @if (Model.HasFinancementDpc) {
+    <h3>DPC</h3>
+    <div class="articleDetail-inscription">
+        la formation est gratuite et indemnisée<br>
+        Inscrivez-vous sur le site <a href="https://www.mondpc.fr/">www.mondpc.fr</a><br>
+        N° de référence du programme : @Model.OgdpcReference<br><a href="contrat-formation-dpc.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">contrat de formation DPC</span></a>
+    </div>
+    }
+    @if (Model.HasFinancementHorsDpc) {
+    <h3>Hors DPC</h3>
+    <div class="articleDetail-inscription">
+        Tarif adhérent: @Model.TarifAdherentLiberal €<br>
+        Tarif non adhérent: @Model.TarifNonAdherentLiberal €<br>
+        <a href="contrat-formation-hors-dpc.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">contrat de formation hors DPC</span></a>
+    </div>
+    }
+    @if (Model.HasFinancementSalarie)
+    {
+    <h3>Salarié</h3>
+    <div class="articleDetail-inscription">
+        Tarif adhérent: @Model.TarifAdherentSalarie €<br>
+        Tarif non adhérent: @Model.TarifNonAdherentSalarie €<br>
+        <a href="contrat-formation-salarie.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">contrat de formation salarié</span></a>
+    </div>
+    }
+</div> 

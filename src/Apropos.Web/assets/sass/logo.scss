@@ -1,0 +1,92 @@
+.logo-container {
+    position: absolute;
+    top: 8px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 104px;
+}
+
+.logo {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.logo-texte {
+    position: relative;
+    display: inline-block;
+    fill: #666666;
+    width: 60px;
+    vertical-align: top;
+    line-height: 2.4em;
+    fill: $color-bodyHeader;
+}
+
+.logo-prevention {
+    fill: $color-prevention;
+}
+
+.logo-recherche {
+    fill: $color-recherche;    
+}
+
+.logo-formation {
+    fill: $color-formation;    
+}
+
+.l-logo {
+    margin-top : 20px;
+}
+
+.l-logo-prevention {
+    /*border-radius: 50%;*/
+    /*background-color: white;
+    /*width: 100px;
+    height: 100px;
+    border: solid 3px #ccc;
+    padding-left: 7px;
+    padding-top: 3px;*/
+    text-align: center;
+    fill: #999;
+}
+
+.logo-titre {
+    margin-top: 0px;
+    font-size: 1.2em;
+    text-align: center;
+    display: block;
+    color: #0095E5;
+}
+
+.logo-prevention-titre {
+    /*color: $color-prevention;*/
+}
+
+.logo-recherche-titre {
+    /*color: $color-recherche;*/
+}
+
+.logo-formation-titre {
+    /*color: $color-formation;*/
+}
+
+.logo-description {
+    font-size: .85em;
+    text-align: left;
+    width: 305px;
+    margin: 0 auto;
+}
+
+/*.axePrevention-image {
+    fill: $color-prevention-dark;    
+}
+
+.axeRecherche-image {
+    fill: $color-recherche-dark;
+}
+
+.axeFormation-image {
+    fill: $color-formation-dark;
+}*/

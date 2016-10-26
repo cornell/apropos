@@ -1,0 +1,36 @@
+﻿@model Article
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Détails</h2>
+
+<div>
+    <h4>Article</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Axe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Axe)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Titre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Titre)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Modifier</a>
+    <a asp-action="index">Retour à la liste</a>
+</p>

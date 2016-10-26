@@ -1,0 +1,15 @@
+2016-09-12 15:28:59.865 +02:00 [Information] Hello, world!
+2016-09-12 15:28:59.948 +02:00 [Debug] Dividing 10 by 0
+2016-09-12 15:28:59.976 +02:00 [Error] Something went wrong
+System.DivideByZeroException: Attempted to divide by zero.
+   at Apropos.Console.Program.Main(String[] args) in D:\Projets\apropos\src\Apropos.Console\Program.cs:line 34
+2016-09-12 15:51:17.984 +02:00 [Information] Hello, world!
+2016-09-12 15:51:18.025 +02:00 [Debug] Dividing 10 by 0
+2016-09-12 15:51:18.030 +02:00 [Error] Something went wrong
+System.DivideByZeroException: Attempted to divide by zero.
+   at Apropos.Console.Program.Main(String[] args) in D:\Projets\apropos\src\Apropos.Console\Program.cs:line 36
+2016-09-12 16:23:42.110 +02:00 [Information] Hello, world!
+2016-09-12 16:23:42.183 +02:00 [Debug] Dividing 10 by 0
+2016-09-12 16:23:42.209 +02:00 [Error] Something went wrong
+System.DivideByZeroException: Attempted to divide by zero.
+   at Apropos.Console.Program.Main(String[] args) in D:\Projets\apropos\src\Apropos.Console\Program.cs:line 37

@@ -1,0 +1,25 @@
+﻿.l-article-etape {
+    width: 20%;
+    vertical-align: top;
+}
+
+.l-article-formation {
+    width: 80%;
+}
+
+.article-etape {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: purple;
+    /*vertical-align: top;*/
+    margin-right: 20px;
+}
+
+.article-formation {
+
+}
+
+.article-formation a {
+    color: $color-formation-dark;
+}

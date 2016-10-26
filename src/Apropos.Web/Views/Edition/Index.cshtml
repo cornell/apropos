@@ -1,0 +1,13 @@
+﻿@model ArticleEditionView
+@{
+    ViewBag.Title = "Edition";
+}
+<form asp-controller="Edition" asp-action="CreerNouvelArticle">
+    <div>
+        <textarea asp-for="@Model.Metadonnees"></textarea>
+    </div>
+    <div>
+        <textarea asp-for="@Model.Contenu"></textarea>
+    </div>
+    <button type="submit">Créer un nouvel article</button>
+</form>

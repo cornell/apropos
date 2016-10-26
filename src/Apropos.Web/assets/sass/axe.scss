@@ -1,0 +1,264 @@
+axe{
+    position:relative;
+}
+
+.axePrevention {
+    background-color: $color-prevention;
+    border-bottom: solid 1px $color-prevention-dark;  
+}
+
+.axeRecherche {
+    background-color: $color-recherche;
+    border-bottom: solid 1px $color-recherche-dark;
+}
+
+.axeFormation {
+    background-color: $color-formation;
+    border-bottom: solid 1px $color-formation-dark;
+}
+
+.bodyHeader {
+    background-color: $color-bodyHeader;
+    border-bottom: solid 1px $color-bodyHeader-dark;
+}
+
+.post .axePrevention,
+.post .axeRecherche,
+.post .axeFormation {
+    margin: 0;
+}
+
+.body-header,
+.axePrevention,
+.axeRecherche,
+.axeFormation{
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.axePrevention-detail,
+.axeRecherche-detail,
+.axeFormation-detail{
+    text-align: left;
+    margin-top: 10px;
+    display: none;
+}
+
+.axePrevention-detail {
+    text-shadow: 1px 1px 1px $color-prevention-text-shadow;
+}
+
+.axeRecherche-detail {
+    text-shadow: 1px 1px 1px $color-recherche-text-shadow;
+}
+
+.axeFormation-detail {
+    text-shadow: 1px 1px 1px $color-formation-text-shadow;
+}
+
+.prevention .axePrevention-detail,
+.recherche .axeRecherche-detail,
+.formation .axeFormation-detail {
+    display: block;
+} 
+
+.prevention .axePrevention-image,
+.recherche .axeRecherche-image,
+.formation .axeFormation-image {
+    display: none;
+} 
+
+.prevention .axePrevention-image {
+    fill: $color-prevention-dark;    
+}
+
+.recherche .axeRecherche-image {
+    fill: $color-recherche-dark;
+}
+
+.formation .axeFormation-image {
+    fill: $color-formation-dark;
+}
+
+.axe-image {
+    margin-left: 35px;
+}
+
+.axe-image:last-child {
+    margin-left: 5px;
+}
+
+.axePrevention-image,
+.axeRecherche-image,
+.axeFormation-image {
+    position: static;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    top: 10px;
+    margin-left: 35px;
+}
+
+
+
+.axePrevention-titre,
+.axeRecherche-titre,
+.axeFormation-titre{    
+    font-variant: small-caps;
+    display: inline-block;
+    font-size: 23px;
+}
+
+.accueil .axePrevention-titre,
+.accueil .axeRecherche-titre,
+.accueil .axeFormation-titre{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.axePrevention-titre,
+.axeRecherche-titre,
+.axeFormation-titre,
+.axePrevention-image,
+.axeRecherche-image,
+.axeFormation-image {
+    vertical-align: middle;
+}
+
+@media only screen and (min-width: 510px) {
+       
+    .accueil .axePrevention-titre,
+    .accueil .axeRecherche-titre,
+    .accueil .axeFormation-titre{
+        margin-left: 65px;
+    }
+          
+    .axePrevention-titre,
+    .axeRecherche-titre,
+    .axeFormation-titre{    
+        display: block;
+        margin-left: 65px;
+        font-size: 30px;
+    }
+    
+    .axeFormation {
+        min-height: 88px;
+    }       
+       
+    .axePrevention-detail,
+    .axeRecherche-detail,
+    .axeFormation-detail {
+        display: block;
+        margin-left: 65px;
+    }     
+
+    .prevention .axePrevention-image, 
+    .recherche .axeRecherche-image, 
+    .formation .axeFormation-image {
+        position: absolute;
+        display: block;
+        height: 60px;
+        left: 0;
+        margin-left: 0;
+    }
+    
+    .prevention .axePrevention-image,
+    .recherche .axeRecherche-image,
+    .formation .axeFormation-image {
+        display: block;
+    } 
+}
+
+
+@media only screen and (min-width: 860px) {
+       
+       
+    .accueil .axePrevention-titre,
+    .accueil .axeRecherche-titre,
+    .accueil .axeFormation-titre{
+        display: inline-block;
+        margin-left: 0;
+    }
+
+    .accueil .axePrevention-detail,
+    .accueil .axeRecherche-detail,
+    .accueil .axeFormation-detail {
+        margin-left: auto;
+    }
+
+    .axePrevention-titre,
+    .axeRecherche-titre,
+    .axeFormation-titre{    
+        display: inline-block;
+        // margin-left: 0;
+        text-align: left;
+    }             
+    
+    .axePrevention,
+    .axeRecherche,
+    .axeFormation{
+        padding: 25px 10px;
+        text-align: center;
+    }
+    
+    .axePrevention > div,
+    .axeRecherche >  div,
+    .axeFormation >  div {
+        text-align: left;
+        display: inline-block;
+    }
+    
+    .axePrevention-image,
+    .axeRecherche-image,
+    .axeFormation-image {
+        position: static;    
+        height: 70px;
+        width: auto;
+        top: auto;
+        display: inline-block;
+    }
+    
+    .prevention .axePrevention,
+    .recherche .axeRecherche,
+    .formation .axeFormation {
+        margin: 20px 20px 0;
+        cursor: default;
+        pointer-events: none;    
+    }    	
+	
+	.prevention .axePrevention-detail,
+	.recherche .axeRecherche-detail,
+	.formation .axeFormation-detail {
+		max-width: 25em;
+	}    
+    
+    .prevention .axePrevention-image,
+    .recherche .axeRecherche-image,
+    .formation .axeFormation-image {
+        position: absolute;    
+    }         
+    
+    .axePrevention-detail,
+    .axeRecherche-detail,
+    .axeFormation-detail {
+        display: block;
+        margin-left: 0;
+        min-height: 0;
+    }     
+    
+    .body-header,
+    .axePrevention,
+    .axeRecherche,
+    .axeFormation{
+        padding: 25px;
+    }
+    
+    .axePrevention-detail,
+    .axeRecherche-detail,
+    .axeFormation-detail {
+        //  display: block;
+         margin-left: 65px;
+     }    
+}

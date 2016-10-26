@@ -1,0 +1,36 @@
+$color-bg-body: hsl(0, 0%, 90%);
+$color-article-border:hsl(0, 0%, 70%);
+$color-bg-article: hsl(0,0%,100%);
+$color-bg-article-resume: $color-bg-article;
+$color-font-primary: hsl(0, 0%, 25%);
+$color-font-secondary: hsl(0, 0%, 45%);
+
+$color-border-button: $color-article-border;
+$color-bgc-button: hsl(0, 0%, 95%);
+$color-bgc-button-hover: darken($color-bgc-button, 10%);
+
+
+// $color-prevention: #4BB05E;
+// $color-recherche: #2096ff;
+// $color-formation: #E91E63;
+
+$color-prevention: hsl(102, 36%, 49%);
+$color-recherche: hsl(31, 80%, 56%);
+$color-formation: hsl(213, 32%, 51%);
+
+// $color-prevention: hsl(201, 40%, 66%);
+// $color-prevention: hsl(180, 100%, 40%);
+$color-prevention-dark: darken($color-prevention, 10%);
+$color-prevention-text-shadow: lighten($color-prevention, 6%);
+
+// $color-recherche: hsl(260, 31%, 72%);
+$color-recherche-dark: darken($color-recherche, 10%);
+$color-recherche-text-shadow: lighten($color-recherche, 4%);
+
+// $color-formation: hsl(213, 32%, 51%);
+$color-formation-dark: darken($color-formation, 10%);
+$color-formation-text-shadow: lighten($color-formation, 4%);
+
+
+$color-bodyHeader: hsl(0, 0%, 40%);
+$color-bodyHeader-dark: darken($color-bodyHeader, 10%);
