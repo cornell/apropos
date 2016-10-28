@@ -6,18 +6,17 @@ using System.Linq;
 
 namespace Apropos.Domain
 {
-    public static class FileReader
+    public class FileReader
     {
-        public static List<string> GetArticles(string path, string filterPattern = null)
+        public List<string> GetArticles(string path)
         {
             var cheminArticles = new List<string>();
             FindPathArticlesFromDirectory(path, cheminArticles);
 
-            var result = (filterPattern == null) ? cheminArticles : cheminArticles.Where(s => s.Contains(filterPattern)).ToList();
-            return result;
+            return cheminArticles;
         }
 
-        private static List<string> FindPathArticlesFromDirectory(string path, List<string> cheminArticles)
+        private List<string> FindPathArticlesFromDirectory(string path, List<string> cheminArticles)
         {
             try
             {
@@ -37,10 +36,9 @@ namespace Apropos.Domain
             return cheminArticles;
         }
 
-        public static string Read(string filePath)
+        public string Read(string filePath)
         {
             return File.ReadAllText(filePath);
         }
-
     }
 }

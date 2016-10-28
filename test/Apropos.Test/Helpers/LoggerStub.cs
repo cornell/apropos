@@ -1,15 +1,13 @@
-﻿using Apropos.Domain;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using System;
-using System.Diagnostics;
 
-namespace Apropos.Test.Core
+namespace Apropos.Test.Helpers
 {
-    public class LoggerStub : ILogger<ArticleService>
+    public class LoggerStub<T> : ILogger<T>
     {
         public IDisposable BeginScope<TState>(TState state)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         public bool IsEnabled(LogLevel logLevel)
@@ -19,7 +17,6 @@ namespace Apropos.Test.Core
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
-            Debugger.Break();
         }
     }
 }

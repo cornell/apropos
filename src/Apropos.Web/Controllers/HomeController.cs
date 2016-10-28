@@ -24,10 +24,7 @@ namespace Apropos.Web.Controllers
         // GET: /<controller>/
         public ViewResult Index()
         {
-            var articles = _service.GetArticles();
-
-            var vm = ArticleView.CreateList(articles);
-            return View(vm);
+            return View();
         }
     }
 }

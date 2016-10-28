@@ -57,7 +57,7 @@ namespace Apropos.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _service.GetArticles().Add(article);
+                _service.GetArticles(article.Axe).Add(article);
                 //_service.SaveChanges();
                 return RedirectToAction("Index");
             }

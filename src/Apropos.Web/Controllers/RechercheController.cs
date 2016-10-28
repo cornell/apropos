@@ -25,7 +25,7 @@ namespace Apropos.Web.Controllers
         // GET: /<controller>/
         public ViewResult Index()
         {
-            var articles = _service.GetArticles(@"\recherche\");
+            var articles = _service.GetArticles(Axe.Recherche);
             var vm = ArticleView.CreateList(articles);
 
             return View(vm);
@@ -34,7 +34,7 @@ namespace Apropos.Web.Controllers
         // GET: /<controller>/
         public ViewResult Article(string url)
         {
-            var articles = _service.GetArticles();
+            var articles = _service.GetArticles(Axe.Recherche);
             Article article = articles.Where(s => s.Titre == url).FirstOrDefault();
             var vm = ArticleView.Create(article);
 

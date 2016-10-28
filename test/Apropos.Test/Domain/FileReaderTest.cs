@@ -10,24 +10,16 @@ namespace Apropos.Test.Domain
         [Fact]
         public void ReadTest()
         {
-            string articleBrut = FileReader.Read(@"_data\\articles\Formation\formation-2016-03.md");
+            string articleBrut = new FileReader().Read(@"_data\\articles\Formation\formation-2016-03.md");
             Assert.NotNull(articleBrut);
         }
 
         [Fact]
         public void GetArticlesTest()
         {
-            List<string> cheminArticles = FileReader.GetArticles("_data\\articles");
+            List<string> cheminArticles = new FileReader().GetArticles("_data\\articles");
 
             Assert.Equal(4, cheminArticles.Count);
-        }
-
-        [Fact]
-        public void GetArticles_When_filtré_par_type_d_article()
-        {
-            List<string> cheminArticles = FileReader.GetArticles("_data\\articles", @"\prevention\");
-
-            Assert.Equal(2, cheminArticles.Count);
-        }
+        }        
     }
 }

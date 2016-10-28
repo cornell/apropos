@@ -57,6 +57,7 @@ namespace Apropos.Web
             services.AddSingleton<ArticleService,ArticleService>();
             services.AddSingleton<ITodoRepository, TodoRepository>();
             services.AddSingleton<ArticleRepository, ArticleRepository>();
+            services.AddSingleton<FileReader, FileReader>();
             services.AddMvc();
         }
 
@@ -87,9 +88,9 @@ namespace Apropos.Web
                 //    name: "recherche",
                 //    template: "recherche/article/*{url}");
 
-                //routes.MapRoute(
-                //    name: "formation",
-                //    template: "{controller=formation}/{action=article}/{url}");
+                routes.MapRoute(
+                    name: "article",
+                    template: "{controller=formation}/{action=article}/{url}");
 
                 routes.MapRoute(
                     name: "default",

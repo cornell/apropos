@@ -33,7 +33,7 @@ namespace Apropos.Web.Controllers
         // GET: /<controller>/
         public ViewResult Index()
         {
-            var articles = _service.GetArticles(@"\prevention\");
+            var articles = _service.GetArticles(Axe.Prevention);
             var vm = ArticleView.CreateList(articles);
 
             return View(vm);
@@ -42,12 +42,12 @@ namespace Apropos.Web.Controllers
         // GET: /<controller>/
         public ViewResult Article(string url)
         {            
-            var articles = _service.GetArticles();
+            var articles = _service.GetArticles(Axe.Prevention);
             Article article = articles.FirstOrDefault(s => s.Url == url);
 
-            return View("Article", article);
+            ArticleView viewModel = ArticleView.Create(article);
+            return View("Article", viewModel);
 
-            //ArticleView viewModel = ArticleView.Create(article);
             //string formationDpc = RenderPartialViewToString("ContratFormationDpcHorsDpc", viewModel);
             //using (StreamWriter htmlWriter = System.IO.File.CreateText("./contrat-formation-dpc.html"))
             //{

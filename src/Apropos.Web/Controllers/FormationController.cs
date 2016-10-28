@@ -27,7 +27,7 @@ namespace Apropos.Web.Controllers
         {
             string contentRootPath = _hostingEnvironment.ContentRootPath;
 
-            var articles = _service.GetArticles(@"\formation\");
+            var articles = _service.GetArticles(Axe.Formation);
             var vm = ArticleView.CreateList(articles);
 
             return View(vm);
@@ -39,8 +39,9 @@ namespace Apropos.Web.Controllers
             string webRootPath = _hostingEnvironment.WebRootPath;
             string contentRootPath = _hostingEnvironment.ContentRootPath;
 
-            var articles = _service.GetArticles();
+            var articles = _service.GetArticles(Axe.Formation);
             Article article = articles.FirstOrDefault(s => s.Url == url);
+
             var vm = ArticleView.Create(article);
 
             return View("Article", vm);

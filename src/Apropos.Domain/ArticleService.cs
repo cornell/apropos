@@ -11,29 +11,84 @@ namespace Apropos.Domain
         private ILogger<ArticleService> _logger;
         private string _path;
         private List<Article> _articles = null;
+        private List<Article> _articlePreventionList = null;
+        private List<Article> _articleRechercheList = null;
+        private List<Article> _articleFormationList = null;
+        private FileReader _fileReader;
 
-        public ArticleService(IHostingEnvironment hostingEnvironment, ILogger<ArticleService> logger)
+        public ArticleService(IHostingEnvironment hostingEnvironment, ILogger<ArticleService> logger, FileReader fileReader)
         {
             _logger = logger;
             _path = hostingEnvironment.ContentRootPath + "\\_data\\articles";
+            _fileReader = fileReader;
         }
 
-        public List<Article> GetArticles(string filterPattern = null)
+        public List<Article> GetArticles()
         {
-            if (_articles != null && filterPattern == null) return _articles;
-
-            List<string> cheminArticles = FileReader.GetArticles(_path, filterPattern);
-            return GetArticles(cheminArticles);
+            List<Article> result = null;
+            List<string> cheminArticles = null;
+            if (_articles == null)
+            {
+                cheminArticles = _fileReader.GetArticles(_path);
+                _articles = GetArticles(cheminArticles);
+            }
+            return result;
         }
 
-        public List<Article> GetArticles(List<string> cheminArticles)
+        public List<Article> GetArticles(Axe axeArticle)
+        {
+            List<Article> result = null;
+            List<string> cheminArticles = null;
+            if (_articles == null)
+            {
+                cheminArticles = _fileReader.GetArticles(_path);
+                _articles = GetArticles(cheminArticles);                
+            }
+            result = GetArticlesParAxe(axeArticle);
+
+            return result;
+        }
+
+        private List<Article> GetArticlesParAxe(Axe axeArticle)
+        {
+            List<Article> result = null;
+            switch (axeArticle)
+            {
+                case Axe.Prevention:
+                    if (_articlePreventionList == null)
+                    {
+                        _articlePreventionList = _articles.Where(a => a.Axe == axeArticle).ToList();
+                    }
+                    result = _articlePreventionList;
+                    break;
+                case Axe.Recherche:
+                    if (_articleRechercheList == null)
+                    {
+                        _articleRechercheList = _articles.Where(a => a.Axe == axeArticle).ToList();
+                    }
+                    result = _articleRechercheList;
+                    break;
+                case Axe.Formation:
+                    if (_articleFormationList == null)
+                    {
+                        _articleFormationList = _articles.Where(a => a.Axe == axeArticle).ToList();
+                    }
+                    result = _articleFormationList;
+                    break;
+                default:
+                    break;
+            }
+            return result;
+        }
+
+        private List<Article> GetArticles(List<string> cheminArticles)
         {            
             var articles = new List<Article>();
             cheminArticles.ForEach(chemin =>
             {
                 try
                 {
-                    string articleBrut = FileReader.Read(chemin);
+                    string articleBrut = _fileReader.Read(chemin);
                     ArticleReader articleReader = ArticleReader.Create(articleBrut, _logger);
                     Article article = articleReader.Read();
                     articles.Add(article);

@@ -90,6 +90,8 @@ namespace Apropos.Web.ViewModels
 
         private ArticleView(Article article)
         {
+            if (article == null) return;
+
             this.Id = article.Id;
             this.Animation = article.Animation;
             this.Axe = article.Axe;
