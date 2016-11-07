@@ -42,12 +42,12 @@ namespace Apropos.Web
             //    .CreateLogger();
 
             // Configure the Serilog pipeline
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .Enrich.FromLogContext() // ensures that any events written directly through Serilog will seamlessly pick up correlation ids like RequestId from ASP.NET.
-                .Enrich.WithProperty("Application", "apropos.web")
-                //.WriteTo.Seq("http://localhost:5341")
-                .CreateLogger();
+            //Log.Logger = new LoggerConfiguration()
+            //    .MinimumLevel.Debug()
+            //    .Enrich.FromLogContext() // ensures that any events written directly through Serilog will seamlessly pick up correlation ids like RequestId from ASP.NET.
+            //    .Enrich.WithProperty("Application", "apropos.web")
+            //    .WriteTo.Seq("http://localhost:5341")
+            //    .CreateLogger();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
