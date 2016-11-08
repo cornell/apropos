@@ -35,46 +35,37 @@ ENV NGINX_VERSION 1.10.1-1~jessie
 ENV DEST_APROPOS home/apropos
 
 # installation nginx
-# et nettoie le gestionnaire de paquets afin que notre image soit un peu plus légère.
 RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \ 
     && echo "deb http://nginx.org/packages/debian/ jessie nginx" >> /etc/apt/sources.list \
     && apt-get update \
     && apt-get install --no-install-recommends \
     nginx -y \
     vim -y \
-    lynx -y \
-    && rm -rf /var/lib/apt/lists/*
-
-# install .net core
-RUN apt-get update \
-    && apt-get install -y curl \ 
-    libunwind8 \
-    gettext \
-    libicu52 \
+    lynx -y
+    
+    # install .net core
+RUN apt-get install curl -y \ 
+    libunwind8 -y \
+    gettext -y \
+    libicu52 -y \
     && curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=827530 \
-    && rm -rf /var/lib/apt/lists/*
+    # nettoie le gestionnaire de paquets afin que notre image soit un peu plus légère.
+    && rm -rf /var/lib/apt/lists/* \
 
-# RUN mkdir -p /usr/share/dotnet \
-#     && tar -zxf dotnet.tar.gz -C /usr/share/dotnet \
-#     && rm dotnet.tar.gz \
-#     && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
-
-RUN mkdir -p /opt/dotnet \
+    && mkdir -p /opt/dotnet \
     && tar -zxf dotnet.tar.gz -C /opt/dotnet \
     && ln -s /opt/dotnet/dotnet /usr/local/bin
-
-EXPOSE 80
-EXPOSE 81
-
-# Répertoires NGINX 
+    # Répertoires NGINX
 RUN mkdir etc/nginx/sites-available \
-    && mkdir etc/nginx/sites-enabled
+    && mkdir etc/nginx/sites-enabled \
+    && mkdir ${DEST_APROPOS}
 
-COPY apropos.conf etc/nginx/conf.d
+COPY apropos.conf etc/nginx/conf.d \
+    && src/Apropos.Web/bin/release/netcoreapp1.0/publish\ ${DEST_APROPOS} 
 
-RUN mkdir ${DEST_APROPOS}
-COPY src/Apropos.Web/bin/release/netcoreapp1.0/publish\ ${DEST_APROPOS} 
 WORKDIR ${DEST_APROPOS}
+
+EXPOSE 80 81
 
 # désactive le démon en tant que directive globale
 CMD ["nginx", "-g", "daemon off;"]
@@ -91,15 +82,3 @@ CMD ["nginx", "-g", "daemon off;"]
 
 # attache un terminal au container en mode interactif
 #> docker exec -it mywebserver /bin/bash
-
-#> mkdir etc/nginx/sites-available
-#> mkdir etc/nginx/sites-enabled
-#> mkdir -p /opt/dotnet && tar zxf dotnet.tar.gz -C /opt/dotnet
-#> ln -s /opt/dotnet/dotnet /usr/local/bin
-
-#> cd home
-#> mkdir hwapp
-#> cd hwapp
-#> dotnet new && dotnet restore && dotnet run
-
-
