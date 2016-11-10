@@ -65,10 +65,14 @@ namespace Apropos.Web
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
-            loggerFactory.AddDebug();
+            //loggerFactory.AddDebug();
 
+            // -- http://blog.getseq.net/asp-net-core-1-0-logging-update/
+            
             // Add Serilog to the logging pipeline
-            loggerFactory.AddSerilog();
+            //loggerFactory.AddSerilog();
+
+            loggerFactory.AddFile("Logs/myapp-{Date}.txt");
 
             if (env.IsDevelopment())
             {

@@ -3,7 +3,8 @@
 
     "dependencies": {
       "Apropos.Core": "1.0.0-*",
-      "Markdig": "0.8.5",
+        "Markdig": "0.8.5",
+        "Serilog.Extensions.Logging.File": "1.0.0",
       "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0",
       "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
       "Microsoft.NETCore.App": {

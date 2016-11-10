@@ -27,7 +27,7 @@
     <div class="articleDetail-inscription">
         Tarif adhérent: @Model.TarifAdherentLiberal €<br>
         Tarif non adhérent: @Model.TarifNonAdherentLiberal €<br>
-        <a href="contrat-formation-hors-dpc.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">contrat de formation hors DPC</span></a>
+        <a href="@Model.Url/contrat-formation-hors-dpc.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">contrat de formation hors DPC</span></a>
     </div>
     }
     @if (Model.HasFinancementSalarie)
@@ -36,7 +36,7 @@
     <div class="articleDetail-inscription">
         Tarif adhérent: @Model.TarifAdherentSalarie €<br>
         Tarif non adhérent: @Model.TarifNonAdherentSalarie €<br>
-        <a href="contrat-formation-salarie.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">contrat de formation salarié</span></a>
+        <a href="@Model.Url/contrat-formation-salarie.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">contrat de formation salarié</span></a>
     </div>
     }
 </div> 

@@ -60,8 +60,8 @@ RUN mkdir etc/nginx/sites-available \
     && mkdir etc/nginx/sites-enabled \
     && mkdir ${DEST_APROPOS}
 
-COPY apropos.conf etc/nginx/conf.d \
-    && src/Apropos.Web/bin/release/netcoreapp1.0/publish\ ${DEST_APROPOS} 
+COPY apropos.conf etc/nginx/conf.d
+COPY src/Apropos.Web/bin/release/netcoreapp1.0/publish\ ${DEST_APROPOS} 
 
 WORKDIR ${DEST_APROPOS}
 
