@@ -1,4 +1,163 @@
-﻿@{
+﻿@model ContratFormationView
+@{
     Layout = null;
 }
-Contrat de formation Hors salarié
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>contrat formation dpc-hors-dpc</title>
+    @*<link rel="stylesheet" href="../../../vendor/base.css">
+        <link rel="stylesheet" href="../../../vendor/normalize.css">*@
+    <link rel="stylesheet" href="../../../css/contrat.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-ogdpc">
+            <img src="../../../images/logo-ogdpc-500.png" width="75" height="75" alt="logo-apropos">
+            <div> ODPC habilité à dispenser</div>
+            <div>des programmes de DPC</div>
+        </div>
+        <div class="logo-apropos-container">
+            <img class="logo-apropos" src="../../../images/logo-apropos-500.png" width="125" height="125" alt="logo-apropos">
+        </div>
+        <div class="apropos-adresse">
+            <div>A PROPOS</div>
+            <div>3 allée du stade</div>
+            <div>22680 Etables/Mer</div>
+        </div>
+        <div class="numero-prefecture">
+            <div>Numéro de</div>
+            <div>Déclaration d’activité</div>
+            <div>enregistrée sous le</div>
+            <div>n° 53 22 08381 22</div>
+            <div>auprès de la Préfecture</div>
+            <div> de la région Bretagne</div>
+        </div>
+    </header>
+    <section>
+        <h1>Contrat de Formation Professionnelle</h1>
+        <p>Entre l'organisme de formation : <strong>" A PROPOS "</strong>, représenté par Hélène Le Roux ­‐ Présidente</p>
+        <p>
+            Et l’employeur <span class="font-secondary">
+    (désignation de l’établissement et adresse du siège social, n° SIRET)</span> désigné ci-­‐après :
+    ......................................................................................................................................................
+    
+    est conclu un contrat de formation professionnelle en application des articles L.6353-3 à L.6353-7 du Code du
+    travail.
+
+    représenté par (représentant de l'employeur). (Indiquer le nom du représentant légal, signataire de la convention)
+    Est conclue la convention suivante, en application des dispositions de la sixième partie du Code du Travail portant organisation de la formation professionnelle tout au long de la vie.    
+</p>
+        <p>
+            L’action de formation se définit comme une ou plusieurs journées consécutives de formation. Les durées et dates de
+            l’action de formation sont précisées respectivement aux articles 2 et 5 du présent contrat.
+        </p>
+        <h2>Article 1 : Objet</h2>
+        <p>En exécution de la présente convention, l'organisme de formation s'engage à organiser l'action de formation intitulée:</p>
+        <p><strong>@Model.Titre</strong>.</p>
+        <h2>Article 2 : Nature et caractéristique des actions de formation</h2>
+        <p>
+            L'action de formation entre dans la catégorie des actions de formation prévues par l'article L.6313-1 du Code du
+            travail : Action d’acquisition, d’entretien ou de perfectionnement des connaissances. Elle a pour objectif l'entretien
+            et le perfectionnement des connaissances.
+        </p>
+        <p>
+            A l'issue de la formation, une attestation de présence sera délivrée au stagiaire. Le suivi de la formation ne donne
+            pas lieu à délivrance de diplôme, certificat ou de tout autre document la sanctionnant.
+        </p>
+        <p>
+            Sa durée est fixée à <strong>@Model.Duree</strong>. Le programme de l'action de formation, les noms et qualités du formateur
+            figurent en annexe du présent contrat.
+        </p>
+        <h2>Article 3 : Niveau de connaissances préalables nécessaires</h2>
+        <p>
+            Afin de suivre au mieux l'action de formation susvisée et obtenir la ou les qualification(s) auxquelles elle prépare,
+            le stagiaire est informé qu'il est nécessaire de posséder avant l'entrée en formation, le niveau de connaissances
+            suivant : Certificat de capacité d'orthophonie.
+        </p>
+        <h2>Article 4 : Effectif formé</h2>
+
+        L’organisme A Propos accueillera les personnes suivantes :
+        ..................................................................
+        ..................................................................
+        ..................................................................
+
+        <h2>Article 5 : Organisation de l'action de formation</h2>
+        <p>L'action de formation en présentiel se déroulera comme suit :</p>
+        <p>Dates: <strong>@Model.DatePdf</strong></p>
+        <p>Horaires: <strong>@Model.Horaire</strong></p>
+        <p>Lieu: <strong>@Model.Lieu</strong></p>
+        <p>L’action de formation est organisée pour un effectif de <strong>@Model.Effectif</strong> stagiaires.</p>
+        <p>Les moyens pédagogiques, techniques et d’encadrement mis en œuvre sont détaillés en annexe du présent contrat.</p>
+        <div class="keepTogether">
+            <h2>Article 6 : Dispositions financières</h2>
+            <p>En contrepartie de cette action de formation, l’employeur s’acquittera des coûts suivants:</p>
+            <p>Frais de formation : coût unitaire T.T.C : <strong>@Model.Tarif €</strong> X .......... stagiaire(s) = .......... €</p>
+            <p>Frais de restauration inclus.</p>
+
+            <h2> Modalités de règlement</h2>
+
+            <p>Le paiement sera dû à réception de la facture.</p>
+            <p>A régler par : chèque bancaire à l’ordre d’A Propos, virement, mandat administratif (rayer les mentions inutiles) </p>
+        </div> 
+        <h2>Article 7 : Renonciation, Interruption et annulation de l’action de formation</h2>        
+        <p>
+            En application de l’article L 6354-­‐1 du code du travail, il est convenu entre les signataires de la présente
+            convention, que faute de réalisation totale ou partielle de la prestation de formation, l’organisme de formation
+            remboursera au cocontractant les sommes qu’il aura indûment perçues de ce fait. C'est‐à­‐dire les sommes qui
+            ne correspondront pas à la réalisation de la prestation de formation.
+        </p>
+        <p>
+            La non réalisation totale de l’action due à la carence du prestataire ou au renoncement à la prestation par
+            l’employeur ne donnera pas lieu à une facturation au titre de la formation professionnelle continue.
+        </p>
+        <p>
+            La réalisation partielle de la prestation de formation, imputable ou non à l’organisme de formation ou à
+            l’employeur, ne donnera lieu qu’à facturation, au titre de la formation professionnelle continue, des sommes
+            correspondant à la réalisation effective de la prestation.
+        </p>
+        <p>
+            En cas de renoncement ou de réalisation partielle de la prestation imputable à l’organisme de formation, à
+            moins de 10 jours francs avant le début de l’action mentionnée à l’article 1, celui-­‐ci s’engage à verser à
+            l’employeur la somme de 50€ au titre de dédit.
+        </p>
+        <p>
+            En cas de renoncement ou de réalisation partielle de la prestation imputable à l’employeur, à moins de 10 jours
+            francs avant le début de l’action mentionnée à l’article 1, celui-­‐ci s’engage à verser au prestataire de formation
+            la somme de 50€ au titre de dédit.
+        </p>
+        <p>
+            Les sommes liées au dédit sont distinctes de celles correspondantes à la réalisation de la prestation.
+        </p>
+        <p>
+            Ces dépenses resteront à la charge de l’employeur qui ne pourra les imputer sur son obligation de participation
+            au financement de la formation professionnelle continue. Elles ne pourront faire l’objet d’une demande de
+            remboursement ou de prise en charge par l’OPCA. 
+        </p>
+
+        <h2>Article 8 : Cas de différend(s)</h2>
+        <p>
+            Si une contestation ou un différend n'ont pu être réglés à l'amiable, le Tribunal de la juridiction dont dépend l'organisme
+            de formation sera seul compétent pour régler le litige.
+        </p>
+        <p>Le stagiaire reconnaît avoir pris connaissance du règlement intérieur.</p>
+        <br><br><br><br>
+        <footer>
+            <div>Fait en double exemplaire, à Etables, le: <span>............................................................</span></div>
+            <br>
+            <br>
+            <div class="signature-apprenant">Pour le stagiaire<span class="font-secondary"> (nom, prénom et signature)</span></div>
+            <div class="signature-apropos">
+                <div>Pour l'organisme de formation</div>
+                <div> La présidente, Hélène Le Roux</div>
+                <img src="../../../images/signature-apropos.png" width="325px" alt="signature-apropos">
+            </div>
+        </footer>
+    </section>
+    </body>
+
+</html>

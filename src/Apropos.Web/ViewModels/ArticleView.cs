@@ -66,19 +66,11 @@ namespace Apropos.Web.ViewModels
             get { return Axe == Axe.Formation; }
         }
 
-        public bool HasFinancementDpc
-        {
-            get { return Financement.Contains(Domain.Financement.Dpc); }
-        }
+        public bool HasFinancementDpc { get; set; }
 
-        public bool HasFinancementHorsDpc
-        {
-            get { return Financement.Contains(Domain.Financement.HorsDpc); }
-        }
-        public bool HasFinancementSalarie
-        {
-            get { return Financement.Contains(Domain.Financement.Salarie); }
-        }
+        public bool HasFinancementHorsDpc { get; set; }
+
+        public bool HasFinancementSalarie { get; set;}
 
         public bool HasFinancement { get; set; }
 
@@ -118,6 +110,9 @@ namespace Apropos.Web.ViewModels
             this.SousTitre = article.SousTitre;
             this.Ville = article.Ville;
             this.Url = article.Url;
+            this.HasFinancementDpc = article.HasFinancementDpc;
+            this.HasFinancementHorsDpc = article.HasFinancementHorsDpc;
+            this.HasFinancementSalarie = article.HasFinancementSalarie;
         }
 
         internal static List<ArticleView> CreateList(List<Article> articles)

@@ -9,8 +9,11 @@ var autoprefixer = require("gulp-autoprefixer");
 var csso = require('gulp-csso');
 var sourcemaps = require('gulp-sourcemaps');
 var sassdoc = require('sassdoc');
+var rename = require('gulp-rename');
+var wkhtmltopdf = require('wkhtmltopdf');
+var tap = require('gulp-tap');
 
-var inputSassFile = 'assets/sass/app.scss';
+var inputSassFolder = 'assets/sass/';
 var autoprefixerOptions = {
     browsers: ['last 2 versions'],
     cascade: false
@@ -23,7 +26,7 @@ gulp.task("del", function () {
 
 gulp.task("sass", function () {
 
-    return gulp.src(inputSassFile)
+    gulp.src(inputSassFolder + 'app.scss')
 
         // init sourcemaps
         .pipe(sourcemaps.init())
@@ -39,6 +42,19 @@ gulp.task("sass", function () {
 
         // write sourcemaps
         .pipe(sourcemaps.write('./wwwroot/css/maps'))
+
+        .pipe(gulp.dest('wwwroot/css'));
+
+    gulp.src(inputSassFolder + 'contrat.scss')
+
+        // compile to sass
+        .pipe(sass({
+            errLogToConsole: true,
+            outputStyle: 'expanded'
+        })).on('error', sass.logError)
+
+        // add vendor prefixes
+        .pipe(autoprefixer(autoprefixerOptions))
 
         .pipe(gulp.dest('wwwroot/css'));
 });
@@ -66,6 +82,32 @@ gulp.task("copy", function () {
 
     gulp.src('assets/font/**')
     .pipe(gulp.dest('wwwroot/font'));
+});
+
+gulp.task("htmltopdf", function () {
+
+    var i = 0;
+    gulp
+        .src('wwwroot/formations/articles/**/*.html')
+        .pipe(tap(function (file, e) {
+            //console.log(file.cwd);
+            //console.log(file.base);
+            //console.log(file.history);
+            //console.log(file.relative);
+            //var propValue;
+            //for (var propName in file) {
+            //    propValue = file[propName];
+            //    console.log('name:' + propName, ', value:<<<', propValue, '>>>');
+            //}
+            var filename = path.basename(file.path).replace('.html','.pdf');
+            wkhtmltopdf(file.contents, { output: path.dirname(file.path) + '/' + filename });
+        }))
+        //.pipe(debug())
+        //.pipe(rename({ dirname: '' }))
+        .pipe(gulp.dest('wwwroot/formations/articles'));
+
+    // Stream input and output 
+    //var stream = wkhtmltopdf(fs.createReadStream('file.html'));
 });
 
 gulp.task('prod', ['sassdoc'], function () {

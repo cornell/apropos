@@ -106,6 +106,20 @@ namespace Apropos.Domain
             NOMBRE_DE_MOTS = limite;
         }
 
+        public bool HasFinancementDpc
+        {
+            get { return Financement.Contains(Domain.Financement.Dpc); }
+        }
+
+        public bool HasFinancementHorsDpc
+        {
+            get { return Financement.Contains(Domain.Financement.HorsDpc); }
+        }
+        public bool HasFinancementSalarie
+        {
+            get { return Financement.Contains(Domain.Financement.Salarie); }
+        }
+
         public Article(){}
 
         private Article(int nombreDeMots)
