@@ -92,9 +92,19 @@ namespace Apropos.Web
                 //    name: "recherche",
                 //    template: "recherche/article/*{url}");
 
+                //routes.MapRoute(
+                //    name: "article",
+                //    template: "{controller=formation}/{action=article}/{url}");
+
+                //routes.MapRoute(
+                //    name: "formation",
+                //    template: "{controller=Formation}/{url}",
+                //    defaults: new { action = "Index" });
+
                 routes.MapRoute(
-                    name: "article",
-                    template: "{controller=formation}/{action=article}/{url}");
+                    name: "formation",
+                    template: "{controller=Formation}/{url}",
+                    defaults: new { action = "Index" });
 
                 routes.MapRoute(
                     name: "default",

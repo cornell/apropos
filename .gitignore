@@ -245,3 +245,4 @@ ModelManifest.xml
 .fake/
 /src/Apropos.Web/Logs
 /src/Apropos.Web/wwwroot/pdf
+/src/Apropos.Web/wwwroot/formation

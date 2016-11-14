@@ -88,26 +88,12 @@ gulp.task("htmltopdf", function () {
 
     var i = 0;
     gulp
-        .src('wwwroot/formations/articles/**/*.html')
+        .src('wwwroot/formation/**/*.html')
         .pipe(tap(function (file, e) {
-            //console.log(file.cwd);
-            //console.log(file.base);
-            //console.log(file.history);
-            //console.log(file.relative);
-            //var propValue;
-            //for (var propName in file) {
-            //    propValue = file[propName];
-            //    console.log('name:' + propName, ', value:<<<', propValue, '>>>');
-            //}
-            var filename = path.basename(file.path).replace('.html','.pdf');
+            var filename = path.basename(file.path).replace('.html', '.pdf');            
             wkhtmltopdf(file.contents, { output: path.dirname(file.path) + '/' + filename });
         }))
-        //.pipe(debug())
-        //.pipe(rename({ dirname: '' }))
-        .pipe(gulp.dest('wwwroot/formations/articles'));
-
-    // Stream input and output 
-    //var stream = wkhtmltopdf(fs.createReadStream('file.html'));
+        .pipe(gulp.dest('wwwroot/formation'));
 });
 
 gulp.task('prod', ['sassdoc'], function () {

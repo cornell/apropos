@@ -1,7 +1,7 @@
 ﻿@model ArticleView
-<a class="article-titre" href="@Model.AxeCss/article/@(Model.Url)"><h1>@Model.Titre</h1></a>
+<a class="article-titre" href="@Model.AxeCss/@(Model.Url)"><h1>@Model.Titre</h1></a>
 @if (Model.HasSousTitre) {
-<a class="article-sousTitre" href="@Model.AxeCss/article/@(Model.Url)">@Model.SousTitre</a>
+<a class="article-sousTitre" href="@Model.AxeCss/Model.Url)">@Model.SousTitre</a>
 }
 <div class="article-info">
     <span class="icon-calendar"></span><span class="article-date u-mlxs">@Model.DateAffichage</span>

@@ -22,29 +22,53 @@ namespace Apropos.Web.Controllers
             _service = service;
         }
 
+        //// GET: /<controller>/
+        //public ViewResult Index()
+        //{
+        //    string contentRootPath = _hostingEnvironment.ContentRootPath;
+
+        //    var articles = _service.GetArticles(Axe.Formation);
+        //    var vm = ArticleView.CreateList(articles);
+
+        //    return View(vm);
+        //}
+
         // GET: /<controller>/
-        public ViewResult Index()
+        public ViewResult Index(string url)
         {
             string contentRootPath = _hostingEnvironment.ContentRootPath;
+            if (string.IsNullOrEmpty(url))
+            {
 
-            var articles = _service.GetArticles(Axe.Formation);
-            var vm = ArticleView.CreateList(articles);
+                var articles = _service.GetArticles(Axe.Formation);
+                var vm = ArticleView.CreateList(articles);
 
-            return View(vm);
+                return View(vm);
+            }
+            else
+            {
+                string webRootPath = _hostingEnvironment.WebRootPath;
+                var articles = _service.GetArticles(Axe.Formation);
+                Article article = articles.FirstOrDefault(s => s.Url == url);
+
+                var vm = ArticleView.Create(article);
+
+                return View("Article", vm);
+            }
         }
 
-        // GET: /<controller>/
-        public ViewResult Article(string url)
-        {
-            string webRootPath = _hostingEnvironment.WebRootPath;
-            string contentRootPath = _hostingEnvironment.ContentRootPath;
+        //// GET: /<controller>/
+        //public ViewResult Index(string url)
+        //{
+        //    string webRootPath = _hostingEnvironment.WebRootPath;
+        //    string contentRootPath = _hostingEnvironment.ContentRootPath;
 
-            var articles = _service.GetArticles(Axe.Formation);
-            Article article = articles.FirstOrDefault(s => s.Url == url);
+        //    var articles = _service.GetArticles(Axe.Formation);
+        //    Article article = articles.FirstOrDefault(s => s.Url == url);
 
-            var vm = ArticleView.Create(article);
+        //    var vm = ArticleView.Create(article);
 
-            return View("Article", vm);
-        }
+        //    return View("Article", vm);
+        //}
     }
 }

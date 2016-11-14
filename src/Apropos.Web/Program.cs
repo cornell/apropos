@@ -62,23 +62,23 @@ namespace Apropos.Web
             if (article.HasFinancementDpc)
             {
                 viewModel = ContratFormationView.Create(article, Financement.Dpc);
-                CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-dpc");
+                CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-dpc", "Contrats/ContratFormationDpcHorsDpc");
             }
             if (article.HasFinancementHorsDpc)
             {
                 viewModel = ContratFormationView.Create(article, Financement.HorsDpc);
-                CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-hors-dpc");
+                CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-hors-dpc", "Contrats/ContratFormationDpcHorsDpc");
             }
             if (article.HasFinancementSalarie)
             {
                 viewModel = ContratFormationView.Create(article, Financement.Salarie);
-                CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-salarie");
+                CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-salarie", "Contrats/ContratFormationDpcHorsDpc");
             }
         }
 
-        private static void CreerContratFormationPdf(IServiceScopeFactory serviceScopeFactory, DirectoryInfo repertoire, ILogger logger, ContratFormationView viewModel, string filename)
+        private static void CreerContratFormationPdf(IServiceScopeFactory serviceScopeFactory, DirectoryInfo repertoire, ILogger logger, ContratFormationView viewModel, string filename, string template)
         {
-            var modeleHtml = RenderViewAsync(serviceScopeFactory, viewModel).Result;
+            var modeleHtml = RenderViewAsync(serviceScopeFactory, viewModel, template).Result;
             string cheminModeleHtml = $"{repertoire.FullName}/{filename}.html";
             using (StreamWriter DestinationWriter = File.CreateText(cheminModeleHtml))
             {
@@ -101,7 +101,7 @@ namespace Apropos.Web
             {
                 string sAppPath = env.ContentRootPath;
                 string swwwRootPath = env.WebRootPath;
-                path = env.WebRootPath + "/formations/articles/" + article.Url;
+                path = env.WebRootPath + "/formation/" + article.Url;
                 result = Directory.CreateDirectory(path);
             }
             catch(Exception ex)
@@ -111,12 +111,12 @@ namespace Apropos.Web
             return result;
         }
 
-        public static Task<string> RenderViewAsync<T>(IServiceScopeFactory scopeFactory, T viewModel)
+        public static Task<string> RenderViewAsync<T>(IServiceScopeFactory scopeFactory, T viewModel, string template)
         {
             using (var serviceScope = scopeFactory.CreateScope())
             {
                 var helper = serviceScope.ServiceProvider.GetRequiredService<RazorViewToStringRenderer>();
-                return helper.RenderViewToStringAsync("Contrats/ContratFormationDpcHorsDpc", viewModel);
+                return helper.RenderViewToStringAsync(template, viewModel);
             }
         }
 
