@@ -10,7 +10,8 @@ namespace Apropos.Test.Core
         {
             Assert.Equal("le-bilan-et-la-reeducation-vocale-le-timbre-en-question", Slugger.GenerateSlug(" Le bilan et la rééducation vocale - le timbre en question  "));
             Assert.Equal("a-propos-d-orthophonie-2", Slugger.GenerateSlug("à propos d'orthophonie 2"));
-            Assert.Equal("mois-de-l-audition", Slugger.GenerateSlug("Mois de l'audition"));
+            Assert.Equal("l-audition", Slugger.GenerateSlug("l'audition"));
+            Assert.Equal("l-evaluation", Slugger.GenerateSlug("l’évaluation"));
         }
 
         [Fact]

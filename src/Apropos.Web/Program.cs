@@ -14,6 +14,7 @@ using Apropos.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.Extensions.ObjectPool;
+using System.Threading;
 
 namespace Apropos.Web
 {
@@ -63,16 +64,18 @@ namespace Apropos.Web
             {
                 viewModel = ContratFormationView.Create(article, Financement.Dpc);
                 CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-dpc", "Contrats/ContratFormationDpcHorsDpc");
+                Thread.Sleep(2000);
             }
             if (article.HasFinancementHorsDpc)
             {
                 viewModel = ContratFormationView.Create(article, Financement.HorsDpc);
                 CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-hors-dpc", "Contrats/ContratFormationDpcHorsDpc");
+                Thread.Sleep(2000);
             }
             if (article.HasFinancementSalarie)
             {
                 viewModel = ContratFormationView.Create(article, Financement.Salarie);
-                CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-salarie", "Contrats/ContratFormationDpcHorsDpc");
+                CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-salarie", "Contrats/ContratFormationSalarie");
             }
         }
 

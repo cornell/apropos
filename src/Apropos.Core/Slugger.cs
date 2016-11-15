@@ -11,12 +11,12 @@ namespace Apropos.Core
         {
             string str = RemoveDiacritics(phrase).ToLower();
             // invalid chars           
-            str = Regex.Replace(str, @"[^a-z0-9\s-']", "");
+            str = Regex.Replace(str, @"[^a-z0-9\s-'’]", "");
             // convert multiple spaces into one space   
             str = Regex.Replace(str, @"\s+", " ").Trim();
             // cut and trim 
             str = str.Trim();//.Substring(0, str.Length <= 45 ? str.Length : 45);
-            str = Regex.Replace(str, @"[\s']", "-"); // hyphens   
+            str = Regex.Replace(str, @"[\s'’]", "-"); // hyphens   
             str = Regex.Replace(str, @"---", "-");
             return str;
         }
