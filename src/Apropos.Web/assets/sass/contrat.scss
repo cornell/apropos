@@ -3,18 +3,18 @@
 
 @font-face {
     font-family: 'regular';
-    src: url('../../font/sourcesanspro-regular-webfont.woff2') format('woff2'),
-         url('../../font/sourcesanspro-regular-webfont.woff') format('woff'),
-         /*url('../../font/sourcesanspro-regular-webfont.ttf') format('truetype'),*/
-         url('../../font/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+    src: url('../font/sourcesanspro-regular-webfont.woff2') format('woff2'),
+         url('../font/sourcesanspro-regular-webfont.woff') format('woff'),
+         /*url('../font/sourcesanspro-regular-webfont.ttf') format('truetype'),*/
+         url('../font/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
 }
 
 @font-face {
     font-family: 'semibold';
-    src: url('../../font/sourcesanspro-semibold-webfont.woff2') format('woff2'),
-         url('../../font/sourcesanspro-semibold-webfont.woff') format('woff'),
-         /*url('../../font/sourcesanspro-semibold-webfont.ttf') format('truetype'),*/
-         url('../../font/sourcesanspro-semibold-webfont.svg#source_sans_prosemibold') format('svg');
+    src: url('../font/sourcesanspro-semibold-webfont.woff2') format('woff2'),
+         url('../font/sourcesanspro-semibold-webfont.woff') format('woff'),
+         /*url('../font/sourcesanspro-semibold-webfont.ttf') format('truetype'),*/
+         url('../font/sourcesanspro-semibold-webfont.svg#source_sans_prosemibold') format('svg');
 }
 
 html {
@@ -51,7 +51,7 @@ strong::after {
 h1 {
     text-align: center;
     font-weight: normal;
-    margin-bottom: 80px;
+    margin-bottom: 30px;
 }
 
 h2 {

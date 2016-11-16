@@ -91,7 +91,7 @@ namespace Apropos.Domain
                 try
                 {
                     string articleBrut = _fileReader.Read(chemin);
-                    ArticleReader articleReader = ArticleReader.Create(articleBrut, _logger);
+                    ArticleReader articleReader = ArticleReader.Create(articleBrut, chemin, _logger);
                     Article article = articleReader.Read();
                     articles.Add(article);
                 }

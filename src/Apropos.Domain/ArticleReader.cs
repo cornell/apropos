@@ -10,18 +10,20 @@ namespace Apropos.Domain
     {
         private string _articleBrut;
         private ILogger _logger;
+        private string _chemin;
 
-        private ArticleReader(string articleBrut, ILogger logger)
+        private ArticleReader(string articleBrut, string chemin, ILogger logger)
         {
             _articleBrut = articleBrut;
             _logger = logger;
+            _chemin = chemin;
         }
 
         public Article Read()
         {
             ArticleBrut articleBrut = Parse();
             string contenuHtml = Markdown.ToHtml(articleBrut.Contenu);
-            var result = Article.Create(articleBrut.Metadonnees, contenuHtml, ArticleDeserializer.Create());
+            var result = Article.Create(articleBrut.Metadonnees, contenuHtml, _chemin, ArticleDeserializer.Create());
             return result;
         }
 
@@ -38,12 +40,12 @@ namespace Apropos.Domain
 
         public static ArticleReader CreateForTest(string articleBrut)
         {
-            return ArticleReader.Create(articleBrut, null);
+            return ArticleReader.Create(articleBrut, null, null);
         }
 
-        public static ArticleReader Create(string articleBrut, ILogger logger)
+        public static ArticleReader Create(string articleBrut, string chemin, ILogger logger)
         {
-            return new ArticleReader(articleBrut, logger);
+            return new ArticleReader(articleBrut, chemin, logger);
         }
 
         public class ArticleBrut

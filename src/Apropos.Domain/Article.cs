@@ -120,6 +120,9 @@ namespace Apropos.Domain
             get { return Financement.Contains(Domain.Financement.Salarie); }
         }
 
+        public string Repertoire { get; private set; }
+        public string NomFichierSansExtension { get; private set; }
+
         public Article(){}
 
         private Article(int nombreDeMots)
@@ -212,7 +215,7 @@ namespace Apropos.Domain
             return result;
         }
 
-        public static Article Create(string metadonnees, string contenuHtml, ArticleDeserializer deserializer)
+        public static Article Create(string metadonnees, string contenuHtml, string chemin, ArticleDeserializer deserializer)
         {
             var input = new StringReader(metadonnees);
             //var yaml = new Deserializer(namingConvention: new CamelCaseNamingConvention());
@@ -221,6 +224,8 @@ namespace Apropos.Domain
             {
                 article.ContenuHtml = contenuHtml;
                 article.Resume = article.GetResume();
+                article.Repertoire = Path.GetDirectoryName(chemin);
+                article.NomFichierSansExtension = Path.GetFileNameWithoutExtension(chemin);
             }
             if(article == null)
             {
@@ -234,7 +239,7 @@ namespace Apropos.Domain
 
         public static Article CreateTest(string metadonnees, string contenuHtml)
         {
-            Article article = Create(metadonnees, contenuHtml, ArticleDeserializer.Create());
+            Article article = Create(metadonnees, contenuHtml, null, ArticleDeserializer.Create());
 
             article.LimiterLeNombreDeCaracteres(12);
             return article;

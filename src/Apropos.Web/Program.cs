@@ -22,6 +22,8 @@ namespace Apropos.Web
     {
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("hosting.json", optional: true)
@@ -36,7 +38,8 @@ namespace Apropos.Web
 
             ArticleService service = host.Services.GetService(typeof(ArticleService)) as ArticleService;
             IHostingEnvironment env = host.Services.GetService(typeof(IHostingEnvironment)) as IHostingEnvironment;
-            ILogger logger = host.Services.GetService(typeof(ILogger)) as ILogger;            
+            ILoggerFactory loggerFactory = host.Services.GetService(typeof(ILoggerFactory)) as ILoggerFactory;
+            ILogger logger = loggerFactory.CreateLogger<Program>();
             StartupDomainApplication(service, env, logger); 
 
             host.Run();
@@ -48,38 +51,61 @@ namespace Apropos.Web
             services.AddTransient<RazorViewToStringRenderer>();
 
             var articles = service.GetArticles(Axe.Formation);
+            int i = 1;
+            int nombreArticles = articles.Count;
             articles.ForEach(article =>
             {
-                CreerFormationsPdf(article, env, logger);
+                DirectoryInfo repertoire = CreerRepertoireArticle(article, env, logger);
+                CreerFormationsPdf(article, repertoire, env, logger);
+                logger.LogInformation($"{i++}/{nombreArticles}: {article.Titre}");
+                CopierImages(article, repertoire);
             });            
         }
 
-        private static void CreerFormationsPdf(Article article, IHostingEnvironment env, ILogger logger)
+        private static void CopierImages(Article article, DirectoryInfo repertoire)
         {
-            DirectoryInfo repertoire = CreerRepertoirePdf(article, env, logger);
+            //string repertoireRelatifImages = $"{article.Repertoire}/{article.NomFichierSansExtension}";
+            //string repertoireImages = $"{repertoire.FullName}/{repertoireRelatifImages}"; 
+            //if(! Directory.Exists(repertoireImages))
+            //{
+            //    DirectoryInfo di = new DirectoryInfo(repertoireImages);
+            //    di.Create();
 
+            //}
+        }
+
+        /// <summary>
+        /// Retourne le répertoire où ont été créé les pdfs.
+        /// </summary>
+        /// <param name="article"></param>
+        /// <param name="env"></param>
+        /// <param name="logger"></param>
+        /// <returns></returns>
+        private static void CreerFormationsPdf(Article article, DirectoryInfo repertoire, IHostingEnvironment env, ILogger logger)
+        {            
             IServiceScopeFactory serviceScopeFactory = InitializeServices();
             ContratFormationView viewModel;
             if (article.HasFinancementDpc)
             {
                 viewModel = ContratFormationView.Create(article, Financement.Dpc);
-                CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-dpc", "Contrats/ContratFormationDpcHorsDpc");
-                Thread.Sleep(2000);
+                string cheminFichierCree = CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-dpc", "Contrats/ContratFormationDpcHorsDpc");
+                logger.LogInformation("création fichier:" + Path.GetFileName(cheminFichierCree));
             }
             if (article.HasFinancementHorsDpc)
             {
                 viewModel = ContratFormationView.Create(article, Financement.HorsDpc);
-                CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-hors-dpc", "Contrats/ContratFormationDpcHorsDpc");
-                Thread.Sleep(2000);
+                string cheminFichierCree = CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-hors-dpc", "Contrats/ContratFormationDpcHorsDpc");
+                logger.LogInformation("création fichier:" + Path.GetFileName(cheminFichierCree));
             }
             if (article.HasFinancementSalarie)
             {
                 viewModel = ContratFormationView.Create(article, Financement.Salarie);
-                CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-salarie", "Contrats/ContratFormationSalarie");
+                string cheminFichierCree = CreerContratFormationPdf(serviceScopeFactory, repertoire, logger, viewModel, "contrat-formation-salarie", "Contrats/ContratFormationSalarie");
+                logger.LogInformation("création fichier:" + Path.GetFileName(cheminFichierCree));
             }
         }
 
-        private static void CreerContratFormationPdf(IServiceScopeFactory serviceScopeFactory, DirectoryInfo repertoire, ILogger logger, ContratFormationView viewModel, string filename, string template)
+        private static string CreerContratFormationPdf(IServiceScopeFactory serviceScopeFactory, DirectoryInfo repertoire, ILogger logger, ContratFormationView viewModel, string filename, string template)
         {
             var modeleHtml = RenderViewAsync(serviceScopeFactory, viewModel, template).Result;
             string cheminModeleHtml = $"{repertoire.FullName}/{filename}.html";
@@ -94,9 +120,10 @@ namespace Apropos.Web
                     logger.LogError($"Erreur sur la création du template PDF: {cheminModeleHtml}", ex);
                 }
             }
+            return cheminModeleHtml;
         }
 
-        private static DirectoryInfo CreerRepertoirePdf(Article article, IHostingEnvironment env, ILogger logger)
+        private static DirectoryInfo CreerRepertoireArticle(Article article, IHostingEnvironment env, ILogger logger)
         {
             string path = "";
             DirectoryInfo result = null;
@@ -104,7 +131,8 @@ namespace Apropos.Web
             {
                 string sAppPath = env.ContentRootPath;
                 string swwwRootPath = env.WebRootPath;
-                path = env.WebRootPath + "/formation/" + article.Url;
+                string lastDirectory = new DirectoryInfo(article.Repertoire).Name;
+                path = $"{env.WebRootPath}/formation/{lastDirectory}/{article.Url}";
                 result = Directory.CreateDirectory(path);
             }
             catch(Exception ex)
