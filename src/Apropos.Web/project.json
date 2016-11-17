@@ -21,7 +21,8 @@
         "Microsoft.AspNetCore.StaticFiles": "1.0.0",
         "Apropos.Domain": "0.1.0-*",
         "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
-        "Microsoft.Extensions.Configuration.Json": "1.0.0"
+      "Microsoft.Extensions.Configuration.Json": "1.0.0",
+      "ImageSharp": "1.0.0-*"
     },
     "frameworks": {
         "netcoreapp1.0": {

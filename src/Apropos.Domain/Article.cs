@@ -100,6 +100,7 @@ namespace Apropos.Domain
         {
             get { return Slugger.GenerateSlug(Titre); }
         }
+        public string UrlComplete { get; private set; }
 
         public void LimiterLeNombreDeCaracteres(int limite)
         {
@@ -122,6 +123,7 @@ namespace Apropos.Domain
 
         public string Repertoire { get; private set; }
         public string NomFichierSansExtension { get; private set; }
+        public string Annee { get; set; }
 
         public Article(){}
 
@@ -226,6 +228,8 @@ namespace Apropos.Domain
                 article.Resume = article.GetResume();
                 article.Repertoire = Path.GetDirectoryName(chemin);
                 article.NomFichierSansExtension = Path.GetFileNameWithoutExtension(chemin);
+                article.UrlComplete = $"{article.Url}{article.GetParametresUrl()}";
+                article.Annee = article.GetAnnee();
             }
             if(article == null)
             {
@@ -235,6 +239,20 @@ namespace Apropos.Domain
                 };
             }
             return article;
+        }
+
+        public string GetParametresUrl()
+        {
+            if (Date == null || Date.Count == 0) return "";
+
+            return $"?annee={Date[0].Year.ToString()}";
+        }
+
+        public string GetAnnee()
+        {
+            if (Date == null || Date.Count == 0) return "";
+
+            return Date[0].Year.ToString();
         }
 
         public static Article CreateTest(string metadonnees, string contenuHtml)

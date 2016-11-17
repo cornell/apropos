@@ -96,18 +96,6 @@ gulp.task("htmltopdf", function () {
         .pipe(gulp.dest('wwwroot/formation'));
 });
 
-gulp.task("htmltopdf-debug", function () {
-
-    var i = 0;
-    gulp
-        .src('wwwroot/formation/debug/*.html')
-        .pipe(tap(function (file, e) {
-            var filename = path.basename(file.path).replace('.html', '.pdf');
-            wkhtmltopdf(file.contents, { output: path.dirname(file.path) + '/' + filename });
-        }))
-        .pipe(gulp.dest('wwwroot/formation/debug'));
-});
-
 gulp.task('prod', ['sassdoc'], function () {
     return gulp
       .src(inputSassFile)

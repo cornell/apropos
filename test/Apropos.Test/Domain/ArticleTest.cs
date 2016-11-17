@@ -72,6 +72,8 @@ photos:
             Assert.Equal(3, sut.Financement.Count);
             Assert.Equal(4, sut.Photos.Count);
             Assert.Equal("le-bilan-et-la-reeducation-vocale-le-timbre-en-question", sut.Url);
+            Assert.Equal("le-bilan-et-la-reeducation-vocale-le-timbre-en-question?annee=2016", sut.UrlComplete);
+            Assert.Equal("2016", sut.Annee);
         }
 
         [Fact]

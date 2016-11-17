@@ -78,6 +78,8 @@ namespace Apropos.Web.ViewModels
 
         public string Url { get; set; }
 
+        public string UrlComplete { get; private set; }
+
         public int Id { get; private set; }
 
         private ArticleView(Article article)
@@ -110,6 +112,7 @@ namespace Apropos.Web.ViewModels
             this.SousTitre = article.SousTitre;
             this.Ville = article.Ville;
             this.Url = article.Url;
+            this.UrlComplete = article.UrlComplete;
             this.HasFinancementDpc = article.HasFinancementDpc;
             this.HasFinancementHorsDpc = article.HasFinancementHorsDpc;
             this.HasFinancementSalarie = article.HasFinancementSalarie;

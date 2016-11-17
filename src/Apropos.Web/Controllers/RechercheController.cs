@@ -5,8 +5,6 @@ using Apropos.Domain;
 using System.Linq;
 using Apropos.Web.ViewModels;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Apropos.Web.Controllers
 {
     public class RechercheController : Controller

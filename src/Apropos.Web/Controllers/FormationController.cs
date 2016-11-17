@@ -5,8 +5,6 @@ using Apropos.Domain;
 using System.Linq;
 using Apropos.Web.ViewModels;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Apropos.Web.Controllers
 {
     public class FormationController : Controller
@@ -34,7 +32,7 @@ namespace Apropos.Web.Controllers
         //}
 
         // GET: /<controller>/
-        public ViewResult Index(string url)
+        public ViewResult Index(string url, string annee)
         {
             string contentRootPath = _hostingEnvironment.ContentRootPath;
             if (string.IsNullOrEmpty(url))
@@ -49,7 +47,7 @@ namespace Apropos.Web.Controllers
             {
                 string webRootPath = _hostingEnvironment.WebRootPath;
                 var articles = _service.GetArticles(Axe.Formation);
-                Article article = articles.FirstOrDefault(s => s.Url == url);
+                Article article = articles.FirstOrDefault(s => s.Url == url && s.Annee == annee);
 
                 var vm = ArticleView.Create(article);
 

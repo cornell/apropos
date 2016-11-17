@@ -11,8 +11,6 @@ using System;
 using Apropos.Web.ViewModels;
 using System.Collections.Generic;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Apropos.Web.Controllers
 {
     public class PreventionController : Controller

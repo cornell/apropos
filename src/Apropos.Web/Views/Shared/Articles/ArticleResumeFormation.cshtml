@@ -1,7 +1,9 @@
-﻿<div class="article-formation articleResume articleResume-formation">
+﻿@model ArticleView
+
+<div class="article-formation articleResume articleResume-formation">
     @Html.Partial("Articles/ArticleInfo")
     <div class="articleResume-contenu clearfix">
         @Html.Raw(@Model.Resume)
-        <a class="readMore u-floatRight" href="@Model.AxeCss/Model.Url)">Lire la suite</a>
+        <a class="readMore u-floatRight" href="@Model.AxeCss/@Model.UrlComplete">Lire la suite</a>
     </div>
 </div>
