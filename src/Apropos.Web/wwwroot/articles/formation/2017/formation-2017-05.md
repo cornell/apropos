@@ -12,6 +12,7 @@ dateAffichage: 19-20 mars 2017
 organisateur: organisateur-kb
 financement:
     - horsDpc
+afficherInscriptionEtTarif: false
 # infos pour les contrats de formation (pdf)
 tarif-adherent-liberal: 150
 tarif-non-adherent-liberal: 150

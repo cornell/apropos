@@ -1,4 +1,5 @@
-﻿using Apropos.Domain;
+﻿using System;
+using Apropos.Domain;
 
 namespace Apropos.Web.ViewModels
 {
@@ -9,9 +10,15 @@ namespace Apropos.Web.ViewModels
         public string Lieu { get; private set; }
         public string Titre { get; private set; }
         public Financement Financement { get; set; }
-        public int Tarif { get; private set; }
+        public int TarifAdherentLiberal { get; private set; }
+        public int TarifAdherentSalarie { get; private set; }
+        public int TarifNonAdherentLiberal { get; private set; }
+        public int TarifNonAdherentSalarie { get; private set; }
         public string DatePdf { get; private set; }
         public string Horaire { get; private set; }
+        public int TarifAdherentLiberalMoinsAccompte { get; private set; }
+        public int TarifNonAdherentLiberalMoinsAccompte { get; private set; }
+        public bool AfficherInscriptionEtTarif { get; private set; }
 
         private ContratFormationView(Article article, Financement financement)
         {
@@ -22,11 +29,21 @@ namespace Apropos.Web.ViewModels
             DatePdf = article.DatePdf;
             Horaire = article.Horaire;
             Financement = financement;
-            if(financement == Financement.Dpc)
-            {
-                Tarif = article.TarifAdherentLiberal;
-            }
+            TarifAdherentLiberal = article.TarifAdherentLiberal;
+            TarifAdherentSalarie = article.TarifAdherentSalarie;
+            TarifNonAdherentLiberal = article.TarifNonAdherentLiberal;
+            TarifNonAdherentSalarie = article.TarifNonAdherentSalarie;
+            TarifAdherentLiberalMoinsAccompte = article.TarifAdherentLiberal - 50;
+            TarifNonAdherentLiberalMoinsAccompte = article.TarifNonAdherentLiberal - 50;
+            //AfficherInscriptionEtTarif = GetAfficherInscriptionEtTarif(article.AfficherInscriptionEtTarif);
         }
+
+        //private bool GetAfficherInscriptionEtTarif(bool? afficherInscriptionEtTarif)
+        //{
+        //    if (afficherInscriptionEtTarif == null) return true;
+
+        //    return afficherInscriptionEtTarif.Value;
+        //}
 
         internal static ContratFormationView Create(Article article, Financement financement)
         {

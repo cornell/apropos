@@ -9,6 +9,33 @@ namespace Apropos.Test.Domain
     public class ArticleTest
     {
         [Fact]
+        public void Test1()
+        {
+            var metadonnees = @"titre: Méthodologie de la recherche et introduction aux traitements statistiques avec le logiciel R appliqués à l'orthophonie - module 2
+sous-titre: approfondissement et amélioration des pratiques
+axe: formation
+ville: Le Mans
+departement: 72
+animation:
+    - Gilles Hunault, maître de conférences, Faculté des Sciences, section mathématiques appliquées à l'Université d'Angers
+    - Hélène le Roux, orthophoniste à Etables/Mer (22).
+date: 
+    - 2017-01-24
+dateAffichage: mardi 24 janvier 2017
+organisateur: organisateur-hl
+financement:
+    - dpc
+# infos pour les contrats de formation (pdf)
+duree: 1 jours en présentiel avec le formateur
+datePdf: mardi 24 janvier 2017
+horaire: 9h à 17h30
+lieu: Le Mans - 72000";
+
+            var sut = Article.CreateTest(metadonnees, null);
+        }
+
+
+        [Fact]
         public void CreateTest()
         {
             var metadonnees = @"titre: Le bilan et la rééducation vocale-le timbre en question   
@@ -39,6 +66,7 @@ financement:
     - dpc
     - horsdpc
     - salarie
+afficherInscriptionEtTarif: false
 photos:
     - 01-formation.jpg
     - 02-formation.jpg
@@ -73,6 +101,7 @@ photos:
             Assert.Equal(4, sut.Photos.Count);
             Assert.Equal("le-bilan-et-la-reeducation-vocale-le-timbre-en-question", sut.Url);
             Assert.Equal("le-bilan-et-la-reeducation-vocale-le-timbre-en-question?annee=2016", sut.UrlComplete);
+            Assert.False(sut.AfficherInscriptionEtTarif);
             Assert.Equal("2016", sut.Annee);
         }
 

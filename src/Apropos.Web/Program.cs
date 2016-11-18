@@ -130,7 +130,15 @@ namespace Apropos.Web
 
         private static string CreerContratFormationPdf(IServiceScopeFactory serviceScopeFactory, DirectoryInfo repertoire, ContratFormationView viewModel, string filename, string template)
         {
-            var modeleHtml = RenderViewAsync(serviceScopeFactory, viewModel, template).Result;
+            string modeleHtml = "";
+            try
+            {
+                modeleHtml = RenderViewAsync(serviceScopeFactory, viewModel, template).Result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Erreur sur la création du template HTML: {template}", ex);
+            }
             string cheminModeleHtml = $"{repertoire.FullName}/{filename}.html";
             using (StreamWriter DestinationWriter = File.CreateText(cheminModeleHtml))
             {

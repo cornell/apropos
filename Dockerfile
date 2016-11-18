@@ -43,7 +43,7 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
     vim -y \
     lynx -y
     
-    # install .net core
+# install .net core
 RUN apt-get install curl -y \ 
     libunwind8 -y \
     gettext -y \
@@ -55,16 +55,18 @@ RUN apt-get install curl -y \
     && mkdir -p /opt/dotnet \
     && tar -zxf dotnet.tar.gz -C /opt/dotnet \
     && ln -s /opt/dotnet/dotnet /usr/local/bin
-    # Répertoires NGINX
+
+# Répertoires NGINX
 RUN mkdir etc/nginx/sites-available \
     && mkdir etc/nginx/sites-enabled \
     && mkdir ${DEST_APROPOS}
 
 COPY apropos.conf etc/nginx/conf.d
-COPY src/Apropos.Web/bin/release/netcoreapp1.0/publish\ ${DEST_APROPOS} 
+COPY src/Apropos.Web/bin/Release/netcoreapp1.0/publish ${DEST_APROPOS} 
 
 WORKDIR ${DEST_APROPOS}
 
+# ouvre les ports 80 (nginx default) et 81 (apropos) du container
 EXPOSE 80 81
 
 # désactive le démon en tant que directive globale
@@ -78,7 +80,9 @@ CMD ["nginx", "-g", "daemon off;"]
 # # en liant le port '82'' du serveur local au port '80' du container
 # # le paramètre '-t' permet d'avoir accès variable d'environnement comme 'clear'
 # # le paramètre '-d' permet de récupérer la ligne de commande
-#> docker run -td -p 82:80 --name mywebserver mynginx
+#> docker run -td -p 82:80 -p 5000:5000 --name mywebserver mynginx
 
 # attache un terminal au container en mode interactif
 #> docker exec -it mywebserver /bin/bash
+# lance l'application
+#> dotnet Apropos.Web.dll

@@ -1,5 +1,6 @@
 ---
 titre: Méthodologie de la recherche et introduction aux traitements statistiques avec le logiciel R appliqués à l'orthophonie - module 2
+sous-titre: approfondissement et amélioration des pratiques
 axe: formation
 ville: Le Mans
 departement: 72
@@ -12,6 +13,7 @@ dateAffichage: mardi 24 janvier 2017
 organisateur: organisateur-hl
 financement:
     - dpc
+afficherInscriptionEtTarif: false
 # infos pour les contrats de formation (pdf)
 duree: 1 jours en présentiel avec le formateur
 datePdf: mardi 24 janvier 2017
@@ -79,8 +81,6 @@ L'animation de la formation sera confiée à Gilles Hunault, maître de confére
 Un questionnaires en ligne d'analyses des besoins et d'évaluation des pratiques sera présenté avant la partie présentielle de 2 jours puis un autre après la partie présentielle portant sur les acquis de connaissance et de satisfaction.
  
 Toujours dans le cadre du DPC et hors quota, un second module d'un jour sera proposé en présentiel au Mans, mardi 24 janvier 2017.
-
-Programme détaillé: Méthodologie de la recherche et traitements statistiques avec le logiciel R appliqués à l'orthophonie : approfondissement et amélioration des pratiques
 
 Nota Bene : ces programme DPC sont hors quota et ne viennent donc pas impacter votre crédit DPC annuel.
 

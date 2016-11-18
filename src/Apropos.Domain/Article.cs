@@ -125,6 +125,8 @@ namespace Apropos.Domain
         public string NomFichierSansExtension { get; private set; }
         public string Annee { get; set; }
 
+        public bool? AfficherInscriptionEtTarif { get; set; }
+
         public Article(){}
 
         private Article(int nombreDeMots)

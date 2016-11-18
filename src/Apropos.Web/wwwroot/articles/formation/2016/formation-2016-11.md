@@ -13,6 +13,7 @@ dateAffichage: 8 et 9 décembre 2016
 organisateur: organisateur-hl
 financement:
     - dpc
+afficherInscriptionEtTarif: false
 # infos pour les contrats de formation (pdf)
 duree: 2 jours en présentiel avec le formateur
 datePdf: jeudi 8 décembre et vendredi 9 décembre 2016
