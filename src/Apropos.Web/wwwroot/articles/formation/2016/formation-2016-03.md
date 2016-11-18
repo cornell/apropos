@@ -38,15 +38,13 @@ photos:
 
 ## Objectifs pédagogiques
 
-Se représenter clairement le fonctionnement des organes vocaux et leur lien avec le résultat acoustique.
+- Se représenter clairement le fonctionnement des organes vocaux et leur lien avec le résultat acoustique.
+    - Élaborer un bilan vocal initial précis et documenté 
+    - Utiliser sa propre voix dans sa pratique, sans appréhension 
+    - Organiser un plan thérapeutique spécifique à chaque patient
+    - Généraliser le plaisir de chanter à d’autres rééducations (pathologies neurologiques, neuro-dégénératives, etc…).
 
-- Élaborer un bilan vocal initial précis et documenté 
-− Utiliser sa propre voix dans sa pratique, sans appréhension 
-− Organiser un plan thérapeutique spécifique à chaque patient
-- Généraliser le plaisir de chanter à d’autres rééducations
-(pathologies neurologiques, neuro-dégénératives, etc…).
-
-> Les participants se verront remettre un mémo reprenant les supports utiles à leur pratique.
+Les participants se verront remettre un mémo reprenant les supports utiles à leur pratique.
 
 ## Programme
 

@@ -22,8 +22,32 @@ namespace Apropos.Domain
         public Article Read()
         {
             ArticleBrut articleBrut = Parse();
-            string contenuHtml = Markdown.ToHtml(articleBrut.Contenu);
-            var result = Article.Create(articleBrut.Metadonnees, contenuHtml, _chemin, ArticleDeserializer.Create());
+            string contenuHtml = GetContenuHtml(articleBrut);
+            Article result = null;
+            try
+            {
+                ArticleDeserializer deserializer = ArticleDeserializer.Create();
+                result = Article.Create(articleBrut.Metadonnees, contenuHtml, _chemin, deserializer);
+
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError($"erreur sur la désérialisation du fichier {_chemin}: [{ex.Message} -> {ex.InnerException.Message}]", ex);
+            }
+            return result;
+        }
+
+        private string GetContenuHtml(ArticleBrut articleBrut)
+        {
+            string result = "";
+            try
+            {
+                result = Markdown.ToHtml(articleBrut.Contenu);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"erreur Markdown sur le fichier {_chemin}", ex);
+            }
             return result;
         }
 

@@ -5,7 +5,7 @@
     @foreach (var photo in @Model.Photos) {    
     <figure>
         <a href="@Model.Url/images/@photo" data-size="1024x768">
-            <img src="@Model.Url/images/@photo" alt="Image description" width="100" />
+            <img src="@Model.Annee/@Model.Url/images/@photo" alt="Image description" width="100" />
         </a>
     </figure>
     }

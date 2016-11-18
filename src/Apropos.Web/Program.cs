@@ -42,7 +42,8 @@ namespace Apropos.Web
             IHostingEnvironment env = host.Services.GetService(typeof(IHostingEnvironment)) as IHostingEnvironment;
             ILoggerFactory loggerFactory = host.Services.GetService(typeof(ILoggerFactory)) as ILoggerFactory;
             _logger = loggerFactory.CreateLogger<Program>();
-            StartupDomainApplication(service, env); 
+            StartupDomainApplication(service, env);
+            //Process.Start("gulp", "htmltopdf");
 
             host.Run();
         }

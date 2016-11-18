@@ -220,7 +220,6 @@ namespace Apropos.Domain
         public static Article Create(string metadonnees, string contenuHtml, string chemin, ArticleDeserializer deserializer)
         {
             var input = new StringReader(metadonnees);
-            //var yaml = new Deserializer(namingConvention: new CamelCaseNamingConvention());
             Article article = deserializer.Deserialize(input);
             if (article != null)
             {

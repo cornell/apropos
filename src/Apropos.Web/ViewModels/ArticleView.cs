@@ -82,6 +82,8 @@ namespace Apropos.Web.ViewModels
 
         public int Id { get; private set; }
 
+        public string Annee { get; private set; }
+
         private ArticleView(Article article)
         {
             if (article == null) return;
@@ -116,6 +118,7 @@ namespace Apropos.Web.ViewModels
             this.HasFinancementDpc = article.HasFinancementDpc;
             this.HasFinancementHorsDpc = article.HasFinancementHorsDpc;
             this.HasFinancementSalarie = article.HasFinancementSalarie;
+            this.Annee = article.Annee;
         }
 
         internal static List<ArticleView> CreateList(List<Article> articles)
