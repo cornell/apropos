@@ -58,8 +58,13 @@ namespace Apropos.Domain
         public int TarifAdherentLiberal { get; set; }
 
         [YamlMember(Alias = "tarif-non-adherent-liberal")]
-
         public int TarifNonAdherentLiberal { get; set; }
+
+        [YamlMember(Alias = "tarif-unique")]
+        public int? TarifUnique { get; set; }
+
+        [YamlMember(Alias = "tarif-dpc")]
+        public int TarifDpc { get; set; }
 
         [YamlMember(Alias = "ogdpc-reference")]
         public string OgdpcReference { get; set; }

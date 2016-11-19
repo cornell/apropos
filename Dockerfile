@@ -80,7 +80,7 @@ CMD ["nginx", "-g", "daemon off;"]
 # # en liant le port '82'' du serveur local au port '80' du container
 # # le paramètre '-t' permet d'avoir accès variable d'environnement comme 'clear'
 # # le paramètre '-d' permet de récupérer la ligne de commande
-#> docker run -td -p 82:80 -p 5000:5000 --name mywebserver mynginx
+#> docker run -td -p 82:80 -p 5000:81 --name mywebserver mynginx
 
 # attache un terminal au container en mode interactif
 #> docker exec -it mywebserver /bin/bash

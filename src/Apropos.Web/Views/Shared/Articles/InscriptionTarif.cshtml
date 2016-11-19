@@ -1,4 +1,13 @@
 ﻿@model ArticleView
+
+@if(Model.HasTarifUnique) {
+<div class="inscriptionTarif">    
+    <h2>Inscription et tarifs</h2>
+    <p>Réservez dès aujourd'hui votre place en envoyant un mail à contact.apropos@gmail.com. Vous recevrez les documents nécessaires à votre inscription définitive.</p>
+
+    <p>Tarif unique: @Model.TarifUnique €</p>
+</div>
+}
 @if(Model.AfficherInscriptionEtTarif) { 
 <div class="inscriptionTarif">
     <h2>Inscription et tarifs</h2>

@@ -83,7 +83,15 @@ namespace Apropos.Web.ViewModels
         public int Id { get; private set; }
 
         public string Annee { get; private set; }
+
         public bool AfficherInscriptionEtTarif { get; private set; }
+
+        public int? TarifUnique { get; private set; }
+
+        public bool HasTarifUnique
+        {
+            get { return (TarifUnique != null); }
+        }
 
         private ArticleView(Article article)
         {
@@ -120,6 +128,7 @@ namespace Apropos.Web.ViewModels
             this.HasFinancementHorsDpc = article.HasFinancementHorsDpc;
             this.HasFinancementSalarie = article.HasFinancementSalarie;
             this.Annee = article.Annee;
+            this.TarifUnique = article.TarifUnique;
             AfficherInscriptionEtTarif = GetAfficherInscriptionEtTarif(article.AfficherInscriptionEtTarif);
         }
 

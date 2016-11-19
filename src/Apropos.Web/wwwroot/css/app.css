@@ -690,14 +690,13 @@ h5 {
 }
 
 h1 {
-  font-size: 21px;
+  font-size: 1em;
   line-height: 1.1;
-  margin-top: 30px;
 }
 
 h2 {
   margin-top: 30px;
-  font-size: 1.1em;
+  /*font-size: 1.1em;*/
 }
 
 h3 {
@@ -1154,15 +1153,23 @@ body.accueil {
   margin: auto;
 }
 
+.articleDetail h1 {
+  margin-top: 30px;
+}
+
 .articleDetail h2 {
   margin-top: 30px;
-  /*    font-size: 1.3em;*/
 }
 
 .articleDetail h3 {
-  margin-top: 15px;
+  margin-top: 30px;
+  color: #000;
   /*    font-size: 1.1em;
     font-variant: all-petite-caps;*/
+}
+
+.articleDetail h3 + p {
+  margin-top: 5px;
 }
 
 .articleDetail p {
@@ -1181,12 +1188,6 @@ body.accueil {
 
 .article-recherche a {
   color: #d37817;
-}
-
-@media screen and (min-width: 860px) {
-  .articleDetail {
-    margin-top: 20px;
-  }
 }
 
 .membreBureau-conteneur {

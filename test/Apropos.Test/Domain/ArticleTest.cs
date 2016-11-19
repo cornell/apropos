@@ -49,6 +49,7 @@ date:
     - 2016-04-12
 dateAffichage: 11-12 mars 2016
 organisateur: organisateur-kb
+tarif-dpc: 450
 tarif-adherent-salarie: 300
 tarif-non-adherent-salarie: 350
 tarif-adherent-liberal: 250
@@ -67,6 +68,7 @@ financement:
     - horsdpc
     - salarie
 afficherInscriptionEtTarif: false
+tarif-unique: 150
 photos:
     - 01-formation.jpg
     - 02-formation.jpg
@@ -90,6 +92,8 @@ photos:
             Assert.Equal(350, sut.TarifNonAdherentSalarie);
             Assert.Equal(250, sut.TarifAdherentLiberal);
             Assert.Equal(300, sut.TarifNonAdherentLiberal);
+            Assert.Equal(150, sut.TarifUnique);
+            Assert.Equal(450, sut.TarifDpc);
             Assert.Equal("32621500013 session 1", sut.OgdpcReference);
             Assert.Equal("2 jours en présentiel avec le formateur", sut.Duree);
             Assert.Equal("vendredi 11 et samedi 12 mars 2016", sut.DatePdf);

@@ -9,12 +9,14 @@ namespace Apropos.Test.Domain
 {
     public class ArticleServiceTest
     {
+        private const string _RACINE_PROJET = "/Projets/apropos/src/Apropos.Web";
+
         [Fact]
         public void GetArticles_prevention()
         {
             ILogger<ArticleService> logger = Substitute.For<ILogger<ArticleService>>();
             IHostingEnvironment hostingEnvironment = Substitute.For<IHostingEnvironment>();
-            hostingEnvironment.ContentRootPath = @"D:\Projets\apropos\src\Apropos.Web";
+            hostingEnvironment.ContentRootPath = _RACINE_PROJET;
             FileReader fileReader = new FileReader();
 
             var service = new ArticleService(hostingEnvironment, logger, fileReader);
@@ -28,7 +30,7 @@ namespace Apropos.Test.Domain
         {
             ILogger<ArticleService> logger = Substitute.For<ILogger<ArticleService>>();
             IHostingEnvironment hostingEnvironment = Substitute.For<IHostingEnvironment>();
-            hostingEnvironment.ContentRootPath = @"D:\Projets\apropos\src\Apropos.Web";
+            hostingEnvironment.ContentRootPath = _RACINE_PROJET;
             FileReader fileReader = new FileReader();
 
             var service = new ArticleService(hostingEnvironment, logger, fileReader);
@@ -42,13 +44,13 @@ namespace Apropos.Test.Domain
         {
             ILogger<ArticleService> logger = Substitute.For<ILogger<ArticleService>>();
             IHostingEnvironment hostingEnvironment = Substitute.For<IHostingEnvironment>();
-            hostingEnvironment.ContentRootPath = @"D:\Projets\apropos\src\Apropos.Web";
+            hostingEnvironment.ContentRootPath = _RACINE_PROJET;
             FileReader fileReader = new FileReader();
 
             var service = new ArticleService(hostingEnvironment, logger, fileReader);
             List<Article> articles = service.GetArticles(Axe.Formation);
 
-            Assert.Equal(9, articles.Count);
+            Assert.Equal(12, articles.Count);
         }
     }
 }

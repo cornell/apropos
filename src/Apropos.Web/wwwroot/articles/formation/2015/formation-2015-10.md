@@ -26,14 +26,11 @@ duree: une demi­‐journée en non présentiel (questionnaire en ligne) et 2 jo
 
 ## Objectifs pédagogiques
 
-- connaître les fentes et l'incompétence vélo-pharyngée
-- ne plus jamais avoir peur de ses suivis
-− évaluer précisément, et prendre en charge efficacement
-− mieux accompagner le patient et sa famille
+Connaître les fentes et l'incompétence vélo-pharyngée; ne plus jamais avoir peur de ses suivis; évaluer précisément, et prendre en charge efficacement; mieux accompagner le patient et sa famille.
 
-> si vous ne possédez pas un miroir de Glatzel il est encore temps d'en acquérir un. Il représente le seul investissement absolument indispensable pour un bon diagnostic. Vous pouvez
-> le commander chez Mot à Mot. Nous l'utiliserons pendant la formation. 
-> Une petite lampe de poche très puissante sera très utile également.
+si vous ne possédez pas un miroir de Glatzel il est encore temps d'en acquérir un. Il représente le seul investissement absolument indispensable pour un bon diagnostic. Vous pouvez
+le commander chez Mot à Mot. Nous l'utiliserons pendant la formation. 
+Une petite lampe de poche très puissante sera très utile également.
 
 ## Programme
 

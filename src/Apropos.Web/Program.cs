@@ -77,21 +77,28 @@ namespace Apropos.Web
 
             if (files.Length > 0)
             {
+                _logger.LogInformation($"{files.Length} images à copier");
                 DirectoryInfo repertoireDestImages = repertoireDest.CreateSubdirectory("images");
                 foreach (FileInfo file in files)
                 {
-                    Image image;
-                    using (FileStream stream = File.OpenRead(file.FullName))
+                    string cheminImageOrigine = file.FullName;
+                    string cheminImageDestination = $"{repertoireDestImages.FullName}/{file.Name}";
+                    if (!File.Exists(cheminImageDestination))
                     {
-                        image = new Image(stream);
-                    }
-                    Image image2 = new Image(image);
+                        _logger.LogInformation($"copie de l'image {cheminImageOrigine} vers {cheminImageDestination}");
+                        Image image;
+                        using (FileStream stream = File.OpenRead(cheminImageOrigine))
+                        {
+                            image = new Image(stream);
+                        }
+                        Image image2 = new Image(image);
 
-                    using (FileStream output = File.OpenWrite($"{repertoireDestImages.FullName}/{file.Name}"))
-                    {
-                        image
-                            .Resize(1024, 0, new BicubicResampler(), false)
-                            .Save(output);
+                        using (FileStream output = File.OpenWrite(cheminImageDestination))
+                        {
+                            image
+                                .Resize(1024, 0, new BicubicResampler(), false)
+                                .Save(output);
+                        }
                     }
                 }
             }

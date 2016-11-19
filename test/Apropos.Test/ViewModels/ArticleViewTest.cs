@@ -66,6 +66,13 @@ namespace Apropos.Test.ViewModels
             Assert.True(sut.HasFinancementSalarie);
         }
 
+        [Fact]
+        public void Tarif_unique()
+        {
+            var sut = _CreateArticleView(@"", "");
+            Assert.False(sut.HasTarifUnique);
+        }
+
         private ArticleView _CreateArticleView(string metadonnees, string contenuHtml)
         {
             var article = Article.CreateTest(metadonnees, contenuHtml);
