@@ -2,7 +2,7 @@
 
 @if(Model.HasTarifUnique) {
 <div class="inscriptionTarif">    
-    <h2>Inscription et tarifs</h2>
+    <h2>Inscriptions et tarifs</h2>
     <p>Réservez dès aujourd'hui votre place en envoyant un mail à contact.apropos@gmail.com. Vous recevrez les documents nécessaires à votre inscription définitive.</p>
 
     <p>Tarif unique: @Model.TarifUnique €</p>
@@ -29,7 +29,8 @@
     <div class="articleDetail-inscription">
         la formation est gratuite et indemnisée<br>
         Inscrivez-vous sur le site <a href="https://www.mondpc.fr/">www.mondpc.fr</a><br>
-        N° de référence du programme : @Model.OgdpcReference<br><a href="@Model.Annee/@Model.Url/contrat-formation-dpc.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">contrat de formation DPC</span></a>
+        N° de référence du programme : @Model.OgdpcReference<br>
+        <a href="@Model.Annee/@Model.Url/contrat-formation-dpc.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">contrat de formation DPC</span></a>
     </div>
     }
     @if (Model.HasFinancementHorsDpc) {

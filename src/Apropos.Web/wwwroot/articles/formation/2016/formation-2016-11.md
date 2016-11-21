@@ -12,6 +12,7 @@ dateAffichage: 8 et 9 décembre 2016
 organisateur: organisateur-hlr
 financement:
     - dpc
+afficherInscriptionEtTarif: false
 # infos pour les contrats de formation (pdf)
 tarif-dpc: 420
 ogdpc-reference: 32621600001 session 2
@@ -28,7 +29,7 @@ Avec la réforme des études d'orthophonie, les contenus en terme de méthodolog
 Bientôt confrontés à des étudiant(e)s au bagage conséquent dans ces domaines, vous ressentez le besoin d'actualiser vos connaissances.
 spécial « maitre de stage », hors quota, gratuit et indemnisé, 
 
-Ce programme de DPC spécial « maitre de stage », hors quota, gratuit et indemnisé,vise à donner les moyens d'encadrer et de conseiller utilement les étudiant(e)s depuis l'élaboration du protocole d'expérimentation jusqu'à sa conclusion.
+Ce programme de DPC « maitre de stage » vise à donner les moyens d'encadrer et de conseiller utilement les étudiant(e)s depuis l'élaboration du protocole d'expérimentation jusqu'à sa conclusion.
 
 Il vous permettra également de faire face à leurs demandes d'accueil en stage de sensibilisation à la recherche.
 
@@ -86,3 +87,17 @@ Analyse de données issues de cas fournis par les formateurs et/ou les stagiaire
 ## Encadrement, moyens pédagogiques:
 
 Un questionnaire d'évaluation des pratiques sera présenté avant la partie présentielle de 2 jours puis un autre après portant sur les acquis de connaissance et de satisfaction.
+
+## Inscription et tarifs
+
+### DPC libéraux 
+
+la formation est gratuite est indemnisée
+
+S'inscrire sur le site [www.mondpc.fr](http://www.mondpc.fr), rubrique « inscription directe » N° de référence du programme: "32621600001 session 2".
+
+Puis retourner le contrat de formation complété et signé à "A Propos 3 allée du stade 22680 Etables/Mer" accompagné du chèque de caution à l’ordre "d’A Propos".
+
+### DPC salariés
+
+écrire à contact.apropos@gmail.com

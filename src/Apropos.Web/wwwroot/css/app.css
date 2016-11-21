@@ -1161,6 +1161,10 @@ body.accueil {
   margin-top: 30px;
 }
 
+.articleDetail h2 + h3 {
+  margin-top: 20px;
+}
+
 .articleDetail h3 {
   margin-top: 30px;
   color: #000;
