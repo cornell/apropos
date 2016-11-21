@@ -88,7 +88,7 @@ Analyse de données issues de cas fournis par les formateurs et/ou les stagiaire
 
 Un questionnaire d'évaluation des pratiques sera présenté avant la partie présentielle de 2 jours puis un autre après portant sur les acquis de connaissance et de satisfaction.
 
-## Inscription et tarifs
+## Inscriptions et tarifs
 
 ### DPC libéraux 
 
