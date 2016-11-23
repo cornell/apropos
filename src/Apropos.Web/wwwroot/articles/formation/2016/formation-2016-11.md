@@ -27,12 +27,10 @@ Vous êtes maître de stage (MDS) ou directeur de mémoire ou souhaitez le deven
 Avec la réforme des études d'orthophonie, les contenus en terme de méthodologie de la recherche clinique et d'analyses statistiques se sont largement étoffés.
 
 Bientôt confrontés à des étudiant(e)s au bagage conséquent dans ces domaines, vous ressentez le besoin d'actualiser vos connaissances.
-spécial « maitre de stage », hors quota, gratuit et indemnisé, 
 
-Ce programme de DPC « maitre de stage » vise à donner les moyens d'encadrer et de conseiller utilement les étudiant(e)s depuis l'élaboration du protocole d'expérimentation jusqu'à sa conclusion.
+Ce programme de DPC vise à donner les moyens d'encadrer et de conseiller utilement les étudiant(e)s depuis l'élaboration du protocole d'expérimentation jusqu'à sa conclusion.
 
 Il vous permettra également de faire face à leurs demandes d'accueil en stage de sensibilisation à la recherche.
-
 
 ## Objectifs pédagogiques
 
@@ -92,7 +90,7 @@ Un questionnaire d'évaluation des pratiques sera présenté avant la partie pr�
 
 ### DPC libéraux 
 
-la formation est gratuite est indemnisée
+la formation, hors quota, est gratuite et indemnisée.
 
 S'inscrire sur le site [www.mondpc.fr](http://www.mondpc.fr), rubrique « inscription directe » N° de référence du programme: "32621600001 session 2".
 
