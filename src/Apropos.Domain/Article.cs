@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using YamlDotNet.Serialization;
+using static Apropos.Domain.ArticleReader;
 
 namespace Apropos.Domain
 {
@@ -14,20 +15,9 @@ namespace Apropos.Domain
         private List<Financement> _financement;
         private List<string> _animation;
         private static int NOMBRE_DE_MOTS = 20;
-        private int _id;
+        private static Random _random = new Random();
 
-        public int Id
-        {
-            get
-            {
-                if(_id == 0)
-                {
-                    _id = new Random().Next();
-                }
-                return _id;
-            }
-            set { _id = value; }
-        }
+        public int Id { get; set; }
 
         public string Titre { get; set; }
 
@@ -131,6 +121,8 @@ namespace Apropos.Domain
         public string Annee { get; set; }
 
         public bool? AfficherInscriptionEtTarif { get; set; }
+        public string Metadonnees { get; private set; }
+        public string ContenuMarkdown { get; private set; }
 
         public Article(){}
 
@@ -224,12 +216,15 @@ namespace Apropos.Domain
             return result;
         }
 
-        public static Article Create(string metadonnees, string contenuHtml, string chemin, ArticleDeserializer deserializer)
+        public static Article Create(ArticleBrut articleBrut, string contenuHtml, string chemin, ArticleDeserializer deserializer)
         {
-            var input = new StringReader(metadonnees);
+            var input = new StringReader(articleBrut.Metadonnees);
             Article article = deserializer.Deserialize(input);
             if (article != null)
             {
+                article.Id = _random.Next();
+                article.Metadonnees = articleBrut.Metadonnees;
+                article.ContenuMarkdown = articleBrut.Contenu;
                 article.ContenuHtml = contenuHtml;
                 article.Resume = article.GetResume();
                 article.Repertoire = Path.GetDirectoryName(chemin);
@@ -261,9 +256,9 @@ namespace Apropos.Domain
             return Date[0].Year.ToString();
         }
 
-        public static Article CreateTest(string metadonnees, string contenuHtml)
+        public static Article CreateTest(ArticleBrut articleBrut, string contenuHtml)
         {
-            Article article = Create(metadonnees, contenuHtml, null, ArticleDeserializer.Create());
+            Article article = Create(articleBrut, contenuHtml, null, ArticleDeserializer.Create());
 
             article.LimiterLeNombreDeCaracteres(12);
             return article;

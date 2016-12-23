@@ -93,42 +93,47 @@ namespace Apropos.Web.ViewModels
             get { return (TarifUnique != null); }
         }
 
+        public string Metadonnees { get; set; }
+        public string ContenuMarkdown { get; private set; }
+
         private ArticleView(Article article)
         {
             if (article == null) return;
 
-            this.Id = article.Id;
-            this.Animation = article.Animation;
-            this.Axe = article.Axe;
-            this.ContenuHtml = article.ContenuHtml;
-            this.Date = article.Date;
-            this.DateAffichage = article.DateAffichage;
-            this.DatePdf = article.DatePdf;
-            this.Departement = article.Departement;
-            this.Duree = article.Duree;
-            this.Effectif = article.Effectif;
-            this.Financement = article.Financement;
-            this.Horaire = article.Horaire;
-            this.Lieu = article.Lieu;
-            this.OgdpcReference = article.OgdpcReference;
-            this.Organisateur = article.Organisateur;
-            this.Photos = article.Photos;
-            this.Resume = article.Resume;
-            this.SousTitre = article.SousTitre;
-            this.TarifAdherentLiberal = article.TarifAdherentLiberal;
-            this.TarifAdherentSalarie = article.TarifAdherentSalarie;
-            this.TarifNonAdherentLiberal = article.TarifNonAdherentLiberal;
-            this.TarifNonAdherentSalarie = article.TarifNonAdherentSalarie;
-            this.Titre = article.Titre;
-            this.SousTitre = article.SousTitre;
-            this.Ville = article.Ville;
-            this.Url = article.Url;
-            this.UrlComplete = article.UrlComplete;
-            this.HasFinancementDpc = article.HasFinancementDpc;
-            this.HasFinancementHorsDpc = article.HasFinancementHorsDpc;
-            this.HasFinancementSalarie = article.HasFinancementSalarie;
-            this.Annee = article.Annee;
-            this.TarifUnique = article.TarifUnique;
+            Id = article.Id;
+            Animation = article.Animation;
+            Axe = article.Axe;
+            Metadonnees = article.Metadonnees;
+            ContenuHtml = article.ContenuHtml;
+            ContenuMarkdown = article.ContenuMarkdown;
+            Date = article.Date;
+            DateAffichage = article.DateAffichage;
+            DatePdf = article.DatePdf;
+            Departement = article.Departement;
+            Duree = article.Duree;
+            Effectif = article.Effectif;
+            Financement = article.Financement;
+            Horaire = article.Horaire;
+            Lieu = article.Lieu;
+            OgdpcReference = article.OgdpcReference;
+            Organisateur = article.Organisateur;
+            Photos = article.Photos;
+            Resume = article.Resume;
+            SousTitre = article.SousTitre;
+            TarifAdherentLiberal = article.TarifAdherentLiberal;
+            TarifAdherentSalarie = article.TarifAdherentSalarie;
+            TarifNonAdherentLiberal = article.TarifNonAdherentLiberal;
+            TarifNonAdherentSalarie = article.TarifNonAdherentSalarie;
+            Titre = article.Titre;
+            SousTitre = article.SousTitre;
+            Ville = article.Ville;
+            Url = article.Url;
+            UrlComplete = article.UrlComplete;
+            HasFinancementDpc = article.HasFinancementDpc;
+            HasFinancementHorsDpc = article.HasFinancementHorsDpc;
+            HasFinancementSalarie = article.HasFinancementSalarie;
+            Annee = article.Annee;
+            TarifUnique = article.TarifUnique;
             AfficherInscriptionEtTarif = GetAfficherInscriptionEtTarif(article.AfficherInscriptionEtTarif);
         }
 

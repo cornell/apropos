@@ -2,49 +2,64 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "_bkdLayout";
 }
 
-<h2>Index</h2>
+<h2>Articles</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Axe)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Titre)
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Axe)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Titre)
-        </td>
-        <td>
-            <a asp-action="Edit" asp-route-id="@item.Id.ToString()">Modifier</a> |
-            <a asp-action="Details" asp-route-id="@item.Id.ToString()">Détails</a> |
-            <a asp-action="Delete" asp-route-id="@item.Id.ToString()">Supprimer</a>
-        </td>
-    </tr>
+@{ 
+    string anneePrecedente = null;
 }
+@foreach (var item in Model) {
+    if (item.Annee != anneePrecedente) {
+        anneePrecedente = item.Annee;
+        <div class="bkd-Article-annee">@item.Annee</div>
+    }
+    <div class="bkd-Article-container">
+        <div class="bkd-Article-axe-container">
+            <span class="bkd-Article-axe bkd-Article-axe@(item.Axe)">@item.Axe</span>
+        </div>
+        <div class="bkd-Article-id-container">
+            <input id="@item.Id" type="radio" name="chkArticle" onclick="changeEvent(event)" onblur="changeEvent(event);"/>
+        </div>
+        <div class="bkd-Article-titre-container">
+            <label for="@item.Id" class="bkd-Article-titre">@item.Titre</label>
+        </div>
+        <div class="bkd-Article-action-container isDisabled">
+            <a class="bkd-Article-action bkd-Article-actionEditer" asp-action="Edit" asp-route-id="@item.Id">modifier</a>
+            <a class="bkd-Article-action bkd-Article-actionDupliquer" asp-action="Edit" asp-route-id="@item.Id">dupliquer</a>
+            @*<a asp-action="Details" asp-route-id="@item.Id">Détails</a> |*@
+            <a class="bkd-Article-action bkd-Article-actionSupprimer" asp-action="Delete" asp-route-id="@item.Id">supprimer</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+}
+<script>
+    function changeEvent(event) {
+        //debugger;
+        var el = event.target;
+        var action = el.parentNode.nextElementSibling.nextElementSibling;
+        toggle(action, "isDisabled");
+    }
 
-</table>
+    function toggle(el, className) {
+
+        if (el.classList) {
+            el.classList.toggle(className);
+        } else {
+            var classes = el.className.split(' ');
+            var existingIndex = classes.indexOf(className);
+
+            if (existingIndex >= 0)
+                classes.splice(existingIndex, 1);
+            else
+                classes.push(className);
+
+            el.className = classes.join(' ');
+        }
+
+    }
+</script>

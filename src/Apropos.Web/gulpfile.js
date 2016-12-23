@@ -45,6 +45,25 @@ gulp.task("sass", function () {
 
         .pipe(gulp.dest('wwwroot/css'));
 
+    gulp.src(inputSassFolder + 'backend-app.scss')
+
+        // init sourcemaps
+        .pipe(sourcemaps.init())
+
+        // compile to sass
+        .pipe(sass({
+            errLogToConsole: true,
+            outputStyle: 'expanded'
+        })).on('error', sass.logError)
+
+        // add vendor prefixes
+        .pipe(autoprefixer(autoprefixerOptions))
+
+        // write sourcemaps
+        .pipe(sourcemaps.write('./wwwroot/css/maps'))
+
+        .pipe(gulp.dest('wwwroot/css'));
+
     gulp.src(inputSassFolder + 'contrat.scss')
 
         // compile to sass

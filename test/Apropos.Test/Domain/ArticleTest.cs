@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Text.RegularExpressions;
 using Xunit;
+using static Apropos.Domain.ArticleReader;
 
 namespace Apropos.Test.Domain
 {
@@ -31,7 +32,7 @@ datePdf: mardi 24 janvier 2017
 horaire: 9h à 17h30
 lieu: Le Mans - 72000";
 
-            var sut = Article.CreateTest(metadonnees, null);
+            var sut = Article.CreateTest(new ArticleBrut(metadonnees, ""), null);
         }
 
 
@@ -76,7 +77,7 @@ photos:
     - 04-formation.jpg          
 ";
 
-            var sut = Article.CreateTest(metadonnees, null);
+            var sut = Article.CreateTest(new ArticleBrut(metadonnees,""), null);
 
             Assert.Equal("Le bilan et la rééducation vocale-le timbre en question", sut.Titre);
             Assert.Equal("Niveau 1", sut.SousTitre);
@@ -112,7 +113,7 @@ photos:
         [Fact]
         public void Create_When_metadonnee_est_vide_Et_contenu_html_est_vide()
         {
-            var sut = Article.CreateTest("", null);
+            var sut = Article.CreateTest(new ArticleBrut("", ""), null);
             Assert.NotNull(sut);
         }
 
@@ -120,7 +121,7 @@ photos:
         public void Create_When_metadonnee_est_vide_Et_contenu_html_n_est_pas_vide()
         {
             string contenuHtml = "<p>lorem impsum</p>";
-            var sut = Article.CreateTest("", contenuHtml);
+            var sut = Article.CreateTest(new ArticleBrut("", ""), contenuHtml);
             Assert.NotNull(sut);
             Assert.Equal(contenuHtml, sut.ContenuHtml);
         }
@@ -128,7 +129,7 @@ photos:
         [Fact]
         public void GetResumeTest()
         {
-            var sut = Article.CreateTest("", @"<p>Illud autem non dubitatur quod cum esset aliquando virtutum.</p>
+            var sut = Article.CreateTest(new ArticleBrut("", ""), @"<p>Illud autem non dubitatur quod cum esset aliquando virtutum.</p>
 <p>In his tractibus navigerum nusquam formavit.</p>");
             sut.LimiterLeNombreDeCaracteres(12);
 
@@ -138,7 +139,7 @@ photos:
         [Fact]
         public void GetParagraphesTest_01()
         {
-            Article sut = Article.CreateTest("", "");
+            Article sut = Article.CreateTest(new ArticleBrut("", ""), "");
             MatchCollection matches = sut.GetParagraphes(@"<p>Illud autem non dubitatur quod cum esset aliquando virtutum.</p>
 <p>In his tractibus navigerum nusquam formavit.</p>");
 
@@ -148,7 +149,7 @@ photos:
         [Fact]
         public void GetParagraphesTest_02()
         {
-            Article sut = Article.CreateTest("", "");
+            Article sut = Article.CreateTest(new ArticleBrut("", ""), "");
             MatchCollection matches = sut.GetParagraphes(@"<h2>Objectifs pédagogiques</h2>
 <p>Pour le praticien, la métacognition vise tout d'abord à comprendre le fonctionnement cognitif de son patient, ses compétences comme ses
 difficultés.</p>
@@ -171,14 +172,14 @@ rééducation des troubles du langage écrit</p>
         [Fact]
         public void GetNombreDeMotsTest()
         {
-            Article sut = Article.CreateTest("", "");
+            Article sut = Article.CreateTest(new ArticleBrut("", ""), "");
             Assert.Equal(3, sut.GetNombreDeMots("Illud, aliquando12 15."));
         }
 
         [Fact]
         public void GetMotsTest()
         {
-            Article sut = Article.CreateTest("", "");
+            Article sut = Article.CreateTest(new ArticleBrut("", ""), "");
             Assert.Equal(@"In his tractibus", sut.GetMots(@"In his tractibus navigerum nusquam formavit.", 3));
         }
 

@@ -16,8 +16,8 @@ namespace Apropos.Console
             System.Console.WriteLine("Monitoring quotes.txt for changes (ctrl-c to quit)...");
             while (true)
             {
-                //MainAsync().GetAwaiter().GetResult();
-                Test1().GetAwaiter().GetResult();
+                MainAsync().GetAwaiter().GetResult();
+                //Test1().GetAwaiter().GetResult();
             }
         }
 
@@ -42,7 +42,7 @@ namespace Apropos.Console
                 {
                     using (var provider = new PhysicalFileProvider(path))
                     {
-                        var token = provider.Watch("*.md");
+                        var token = provider.Watch("*.txt");
                         //Assert.NotNull(token);
                         //Assert.False(token.HasChanged);
                         //Assert.True(token.ActiveChangeCallbacks);

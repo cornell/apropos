@@ -26,14 +26,13 @@ namespace Apropos.Domain
 
         public List<Article> GetArticles()
         {
-            List<Article> result = null;
             List<string> cheminArticles = null;
             if (_articles == null)
             {
                 cheminArticles = _fileReader.GetArticles(_path);
                 _articles = GetArticles(cheminArticles);
             }
-            return result;
+            return _articles;
         }
 
         public List<Article> GetArticles(Axe axeArticle)
