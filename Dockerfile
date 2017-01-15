@@ -44,8 +44,9 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
     lynx -y
     
 # install .net core
-RUN apt-get install curl -y \ 
+RUN apt-get install curl -y \
     libunwind8 -y \
+    rsync -y \
     gettext -y \
     libicu52 -y \
     && curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=827530 \
@@ -63,6 +64,15 @@ RUN mkdir etc/nginx/sites-available \
 
 COPY apropos.conf etc/nginx/conf.d
 COPY src/Apropos.Web/bin/Release/netcoreapp1.0/publish ${DEST_APROPOS} 
+
+# Ajout de la librairie libjpeg8
+# Télécharge le package
+RUN wget http://ftp.de.debian.org/debian/pool/main/libj/libjpeg8/libjpeg8_8d-1+deb7u1_amd64.deb
+
+WORKDIR ${DEST_APROPOS}
+
+# décompresse le package
+dpkg -i libjpeg8_8d-1+deb7u1_amd64.deb
 
 WORKDIR ${DEST_APROPOS}
 

@@ -1,9 +1,7 @@
 ﻿using Apropos.Domain;
-using Apropos.Web.Models;
 using Apropos.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Linq;
 
 namespace Apropos.Web.Controllers
 {
@@ -73,11 +71,12 @@ namespace Apropos.Web.Controllers
                 return NotFound();
             }
             Article article = _service.GetArticles().Find(s => s.Id == id);
+            var vm = ArticleView.Create(article);
             if (article == null)
             {
                 return NotFound();
             }
-            return View(article);
+            return View(vm);
         }
 
 

@@ -26,7 +26,6 @@ namespace Apropos.Domain
 
         public List<Article> GetArticles()
         {
-            List<Article> result = null;
             List<string> cheminArticles = null;
             if (_articles == null)
             {

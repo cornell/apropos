@@ -27,12 +27,12 @@ namespace Apropos.Domain
             try
             {
                 ArticleDeserializer deserializer = ArticleDeserializer.Create();
-                result = Article.Create(articleBrut.Metadonnees, contenuHtml, _chemin, deserializer);
+                result = Article.Create(articleBrut, contenuHtml, _chemin, deserializer);
 
             }
             catch(Exception ex)
             {
-                _logger.LogError($"erreur sur la désérialisation du fichier {_chemin}: [{ex.Message} -> {ex.InnerException.Message}]", ex);
+                _logger.LogError(ex.Message);
             }
             return result;
         }
@@ -62,9 +62,9 @@ namespace Apropos.Domain
             return new ArticleBrut(metadonnees, contenu);
         }
 
-        public static ArticleReader CreateForTest(string articleBrut)
+        public static ArticleReader CreateForTest(string articleBrut, ILogger logger)
         {
-            return ArticleReader.Create(articleBrut, null, null);
+            return ArticleReader.Create(articleBrut, null, logger);
         }
 
         public static ArticleReader Create(string articleBrut, string chemin, ILogger logger)
