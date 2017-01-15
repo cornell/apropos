@@ -6,7 +6,7 @@
 <div class="article-info">
     <span class="icon-calendar"></span><span class="article-date u-mlxs">@Model.DateAffichage</span>
     @if (Model.HasVille) {
-    <span class="icon-location u-mlm"></span><span class="article-ville u-mlxs">@Model.Ville (@Model.Departement)</span>
+    <span class="icon-location u-mlm"></span><span class="article-ville u-mlxs">@Model.Ville @if (Model.HasDepartement) { <text>(</text> @Model.Departement <text>)</text> } </span>
     }
     @if (Model.HasPhotos) {
     <span class="icon-image u-mlm"></span><span class="u-mlxs">@Model.Photos.Count photos</span>

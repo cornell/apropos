@@ -2,10 +2,10 @@
 @if (Model.HasPhotos)
 {
 <div class="my-gallery">
-    @foreach (var photo in @Model.Photos) {    
+    @foreach (var photo in @Model.Photos) {
     <figure>
-        <a href="@Model.Annee/@Model.Url/images/@photo" data-size="1024x768">
-            <img src="@Model.Annee/@Model.Url/images/@photo" alt="Image description" width="100" />
+        <a href="@Model.GetCheminRelatifPhoto(photo)" data-size="@Model.GetTaillePhoto(photo)">
+            <img src="@Model.GetCheminRelatifPhoto(photo)" alt="Image description" height="75" />
         </a>
     </figure>
     }

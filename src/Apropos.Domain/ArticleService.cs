@@ -19,7 +19,7 @@ namespace Apropos.Domain
         public ArticleService(IHostingEnvironment hostingEnvironment, ILogger<ArticleService> logger, FileReader fileReader)
         {
             _logger = logger;
-            _path = hostingEnvironment.ContentRootPath + "/wwwroot/articles";
+            _path = hostingEnvironment.WebRootPath + "/articles";
             _fileReader = fileReader;
             _logger.LogInformation($"chemin racine des articles: {_path}");
         }
@@ -33,7 +33,7 @@ namespace Apropos.Domain
                 cheminArticles = _fileReader.GetArticles(_path);
                 _articles = GetArticles(cheminArticles);
             }
-            return result;
+            return _articles;
         }
 
         public List<Article> GetArticles(Axe axeArticle)

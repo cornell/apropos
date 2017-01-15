@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using Apropos.Domain;
+using System.IO;
+using ImageSharp;
 
 namespace Apropos.Web.ViewModels
 {
     public class ArticleView
     {
+        private List<KeyValuePair<string, string>> _taillePhotos = new List<KeyValuePair<string, string>>();
+
         public List<string> Animation { get; private set; }
         public Axe Axe { get; private set; }
 
@@ -51,6 +55,11 @@ namespace Apropos.Web.ViewModels
             get { return string.IsNullOrEmpty(SousTitre) == false; }
         }
 
+        public bool HasDepartement
+        {
+            get { return string.IsNullOrEmpty(Departement) == false; }
+        }
+
         public bool IsAxePrevention
         {
             get { return Axe == Axe.Prevention; }
@@ -64,6 +73,32 @@ namespace Apropos.Web.ViewModels
         public bool IsAxeFormation
         {
             get { return Axe == Axe.Formation; }
+        }
+
+        public string GetCheminRelatifPhoto(string nomPhoto)
+        {
+            return $"{Annee}/{Url}/images/{nomPhoto}";
+        }
+
+        public string GetTaillePhoto(string nomPhoto)
+        {            
+            string result;
+            if(_taillePhotos.Exists(s => s.Key == nomPhoto))
+            {
+                KeyValuePair<string, string> keyValue = _taillePhotos.Find(s => s.Key == nomPhoto);
+                result = keyValue.Value;
+            }
+            else
+            {
+                string cheminPhoto = $"{RepertoirePhotos}/{nomPhoto}";
+                using (FileStream stream = File.OpenRead(cheminPhoto))
+                {
+                    Image image = new Image(stream);
+                    result = $"{image.Width}x{image.Height}";
+                }
+                _taillePhotos.Add(new KeyValuePair<string, string>(nomPhoto, result));
+            }
+            return result;
         }
 
         public bool HasFinancementDpc { get; set; }
@@ -93,6 +128,8 @@ namespace Apropos.Web.ViewModels
             get { return (TarifUnique != null); }
         }
 
+        public string RepertoirePhotos { get; private set; }
+
         private ArticleView(Article article)
         {
             if (article == null) return;
@@ -113,7 +150,7 @@ namespace Apropos.Web.ViewModels
             this.OgdpcReference = article.OgdpcReference;
             this.Organisateur = article.Organisateur;
             this.Photos = article.Photos;
-            this.Resume = article.Resume;
+            this.Resume = article.ResumeAuto;
             this.SousTitre = article.SousTitre;
             this.TarifAdherentLiberal = article.TarifAdherentLiberal;
             this.TarifAdherentSalarie = article.TarifAdherentSalarie;
@@ -130,6 +167,7 @@ namespace Apropos.Web.ViewModels
             this.Annee = article.Annee;
             this.TarifUnique = article.TarifUnique;
             AfficherInscriptionEtTarif = GetAfficherInscriptionEtTarif(article.AfficherInscriptionEtTarif);
+            this.RepertoirePhotos = $"{article.Repertoire}/{article.Url}/images".Replace("/articles", "").Replace(@"\articles", "");
         }
 
         private bool GetAfficherInscriptionEtTarif(bool? afficherInscriptionEtTarif)

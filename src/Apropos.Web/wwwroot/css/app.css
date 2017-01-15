@@ -1176,10 +1176,9 @@ body.accueil {
   margin-top: 5px;
 }
 
-.articleDetail p {
-  margin-top: 15px;
-}
-
+/*.articleDetail p {
+    margin-top: 15px;
+}*/
 .articleDetail-adresse,
 .articleDetail-inscription {
   margin-left: 10px;
@@ -1708,6 +1707,13 @@ body.quiSommesNous {
 .post .axeRecherche,
 .post .axeFormation {
   display: none;
+}
+
+.post blockquote {
+  /*border-left: solid 2px gray;*/
+  padding-left: 10px;
+  margin-left: 10px;
+  font-style: italic;
 }
 
 @media only screen and (min-width: 510px) {

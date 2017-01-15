@@ -42,8 +42,20 @@ namespace Apropos.Web
             IHostingEnvironment env = host.Services.GetService(typeof(IHostingEnvironment)) as IHostingEnvironment;
             ILoggerFactory loggerFactory = host.Services.GetService(typeof(ILoggerFactory)) as ILoggerFactory;
             _logger = loggerFactory.CreateLogger<Program>();
-            StartupDomainApplication(service, env);
+
+            _logger.LogInformation(Directory.GetCurrentDirectory());
+
+            try
+            {
+                StartupDomainApplication(service, env);
+                //throw new ArgumentNullException("Bammm Erreur");
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(new EventId(12, "lecture pour pdf"), ex, "message");
+            }
             //Process.Start("gulp", "htmltopdf");
+
 
             host.Run();
         }
@@ -53,7 +65,7 @@ namespace Apropos.Web
             var services = new ServiceCollection();
             services.AddTransient<RazorViewToStringRenderer>();
 
-            var articles = service.GetArticles(Axe.Formation);
+            var articles = service.GetArticles();
             int i = 1;
             int nombreArticles = articles.Count;
             articles.ForEach(article =>
@@ -62,7 +74,47 @@ namespace Apropos.Web
                 CreerFormationsPdf(article, repertoireDest, env);
                 _logger.LogInformation($"{i++}/{nombreArticles}: {article.Titre}");
                 CopierImages(article, repertoireDest);
+                CopierPdfs(article, repertoireDest);
             });            
+        }
+
+        private static void CopierPdfs(Article article, DirectoryInfo repertoireDest)
+        {
+            string repertoireOriginePdfs = $"{article.Repertoire}/{article.NomFichierSansExtension}";
+            FileInfo[] files = new FileInfo[0];
+            if (File.Exists(repertoireOriginePdfs))
+            {
+                DirectoryInfo di = new DirectoryInfo(repertoireOriginePdfs);
+                files = di.GetFiles();
+            }
+
+            if (files.Length > 0)
+            {
+                _logger.LogInformation($"{files.Length} images à copier");
+                DirectoryInfo repertoireDestImages = repertoireDest.CreateSubdirectory("images");
+                foreach (FileInfo file in files)
+                {
+                    string cheminImageOrigine = file.FullName;
+                    string cheminImageDestination = $"{repertoireDestImages.FullName}/{file.Name}";
+                    if (!File.Exists(cheminImageDestination))
+                    {
+                        _logger.LogInformation($"copie de l'image {cheminImageOrigine} vers {cheminImageDestination}");
+                        Image image;
+                        using (FileStream stream = File.OpenRead(cheminImageOrigine))
+                        {
+                            image = new Image(stream);
+                        }
+                        Image image2 = new Image(image);
+
+                        using (FileStream output = File.OpenWrite(cheminImageDestination))
+                        {
+                            image
+                                .Resize(1024, 0, new BicubicResampler(), false)
+                                .Save(output);
+                        }
+                    }
+                }
+            }
         }
 
         private static void CopierImages(Article article, DirectoryInfo repertoireDest)
@@ -170,7 +222,7 @@ namespace Apropos.Web
                 string sAppPath = env.ContentRootPath;
                 string swwwRootPath = env.WebRootPath;
                 string lastDirectory = new DirectoryInfo(article.Repertoire).Name;
-                path = $"{env.WebRootPath}/formation/{lastDirectory}/{article.Url}";
+                path = $"{env.WebRootPath}/{article.Axe.ToString().ToLower()}/{lastDirectory}/{article.Url}";
                 result = Directory.CreateDirectory(path);
             }
             catch(Exception ex)

@@ -18,40 +18,39 @@ namespace Apropos.Web.Controllers
         ILogger<PreventionController> _logger;
         private readonly IHostingEnvironment _hostingEnvironment;
         ArticleService _service;
+        private ArticleViewService _viewService;
         IServiceProvider _serviceProvider;
 
-        public PreventionController(IHostingEnvironment hostingEnvironment, ILogger<PreventionController> logger, ArticleService service, IServiceProvider serviceProvider)
+        public PreventionController(IHostingEnvironment hostingEnvironment, ILogger<PreventionController> logger, ArticleService service, ArticleViewService viewService, IServiceProvider serviceProvider)
         {
             _hostingEnvironment = hostingEnvironment;
             _logger = logger;
             _service = service;
+            _viewService = viewService;
             _serviceProvider = serviceProvider;
         }
 
-        // GET: /<controller>/
-        public ViewResult Index()
+        public ViewResult Index(string url, string annee)
         {
-            var articles = _service.GetArticles(Axe.Prevention);
-            var vm = ArticleView.CreateList(articles);
+            string contentRootPath = _hostingEnvironment.ContentRootPath;
+            if (string.IsNullOrEmpty(url))
+            {
 
-            return View(vm);
-        }
+                var articles = _service.GetArticles(Axe.Prevention);
+                var vm = ArticleView.CreateList(articles);
 
-        // GET: /<controller>/
-        public ViewResult Article(string url)
-        {            
-            var articles = _service.GetArticles(Axe.Prevention);
-            Article article = articles.FirstOrDefault(s => s.Url == url);
+                return View(vm);
+            }
+            else
+            {
+                string webRootPath = _hostingEnvironment.WebRootPath;
+                var articles = _service.GetArticles(Axe.Prevention);
+                Article article = articles.FirstOrDefault(s => s.Url == url && s.Annee == annee);
 
-            ArticleView viewModel = ArticleView.Create(article);
-            return View("Article", viewModel);
+                var vm = _viewService.GetArticle(article);
 
-            //string formationDpc = RenderPartialViewToString("ContratFormationDpcHorsDpc", viewModel);
-            //using (StreamWriter htmlWriter = System.IO.File.CreateText("./contrat-formation-dpc.html"))
-            //{
-            //    htmlWriter.WriteLine(formationDpc);
-            //}
-            //return v;
+                return View("Article", vm);
+            }
         }
 
         protected string RenderPartialViewToString(string viewName, object model)

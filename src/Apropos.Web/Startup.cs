@@ -2,6 +2,7 @@
 using Apropos.Web.Controllers;
 using Apropos.Web.Infrastructure;
 using Apropos.Web.Models;
+using Apropos.Web.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -55,6 +56,7 @@ namespace Apropos.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ArticleService,ArticleService>();
+            services.AddSingleton<ArticleViewService, ArticleViewService>();
             services.AddSingleton<ITodoRepository, TodoRepository>();
             services.AddSingleton<ArticleRepository, ArticleRepository>();
             services.AddSingleton<FileReader, FileReader>();
@@ -100,6 +102,11 @@ namespace Apropos.Web
                 //    name: "formation",
                 //    template: "{controller=Formation}/{url}",
                 //    defaults: new { action = "Index" });
+
+                routes.MapRoute(
+                    name: "prevention",
+                    template: "{controller=Prevention}/{url}",
+                    defaults: new { action = "Index" });
 
                 routes.MapRoute(
                     name: "formation",

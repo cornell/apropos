@@ -99,7 +99,9 @@ namespace Apropos.Domain
 
         public string ContenuHtml { get; set; }
 
-        public string Resume { get; private set; }       
+        public string ResumeAuto { get; set; }
+
+        public List<string> Resume { get; set; }
 
         public string Url
         {
@@ -144,6 +146,9 @@ namespace Apropos.Domain
         /// </summary>
         public string GetResume()
         {
+            if (Resume != null && Resume.Count > 0)
+                return GetResumeManuel(Resume);
+
             StringBuilder result = new StringBuilder();
             MatchCollection paragraphes = GetParagraphes(ContenuHtml);
             if (paragraphes?.Count > 0)
@@ -176,9 +181,23 @@ namespace Apropos.Domain
             return result.ToString();
         }
 
+        private string GetResumeManuel(List<string> resume)
+        {
+            StringBuilder result = new StringBuilder();
+
+            resume.ForEach(paragraphe => result.Append(AjouterBaliseHtml(paragraphe, "p")));
+
+            return result.ToString();
+        }
+
         private string AjouterBaliseHtml(string paragrapheTronque)
         {
             return "<p>" + paragrapheTronque + "...</p>";
+        }
+
+        private string AjouterBaliseHtml(string paragrapheTronque, string balise)
+        {
+            return $"<{balise}> {paragrapheTronque}</{balise}>";
         }
 
         public string GetMots(string paragrapheBrut, int nombreDeMotsACapturer)
@@ -231,7 +250,7 @@ namespace Apropos.Domain
             if (article != null)
             {
                 article.ContenuHtml = contenuHtml;
-                article.Resume = article.GetResume();
+                article.ResumeAuto = article.GetResume();
                 article.Repertoire = Path.GetDirectoryName(chemin);
                 article.NomFichierSansExtension = Path.GetFileNameWithoutExtension(chemin);
                 article.UrlComplete = $"{article.Url}{article.GetParametresUrl()}";

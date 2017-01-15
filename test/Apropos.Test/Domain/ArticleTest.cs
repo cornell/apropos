@@ -182,6 +182,24 @@ rééducation des troubles du langage écrit</p>
             Assert.Equal(@"In his tractibus", sut.GetMots(@"In his tractibus navigerum nusquam formavit.", 3));
         }
 
+        [Fact]
+        public void When_Resume_existe()
+        {
+            var metadonnees = @"titre: Le bilan et la rééducation vocale-le timbre en question   
+sous-titre:  Niveau 1
+axe: formation
+layout: post.html
+ville: Pontivy
+resume:
+    - 50 orthophonistes participantes, plus de 120 livres doudous offerts, plus de 120 livrets Objectif Langage distribués.
+    - Merci à tous et à l’année prochaine !         
+";
+
+            var sut = Article.CreateTest(metadonnees, null);
+
+            Assert.Equal("<p> 50 orthophonistes participantes, plus de 120 livres doudous offerts, plus de 120 livrets Objectif Langage distribués.</p><p> Merci à tous et à l’année prochaine !</p>", sut.GetResume());
+        }
+
         //[Fact]
         //public void Axe_When_formation()
         //{
