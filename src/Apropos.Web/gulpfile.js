@@ -109,10 +109,22 @@ gulp.task("htmltopdf", function () {
     gulp
         .src('wwwroot/formation/**/*.html')
         .pipe(tap(function (file, e) {
-            var filename = path.basename(file.path).replace('.html', '.pdf');            
+            var filename = path.basename(file.path).replace('.html', '.pdf');
             wkhtmltopdf(file.contents, { output: path.dirname(file.path) + '/' + filename });
         }))
         .pipe(gulp.dest('wwwroot/formation'));
+});
+
+gulp.task("creer-adhesion", function () {
+
+    var i = 0;
+    return gulp
+        .src('wwwroot/articles/*.html')
+        .pipe(tap(function (file, e) {
+            var filename = path.basename(file.path).replace('.html', '.pdf');
+            wkhtmltopdf(file.contents, { output: 'wwwroot/assets/documents' + '/' + filename });
+        }));
+        //.pipe(gulp.dest(''));
 });
 
 gulp.task('prod', ['sassdoc'], function () {
