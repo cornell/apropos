@@ -96,7 +96,7 @@ S'inscrire sur le site [www.mondpc.fr](http://www.mondpc.fr), rubrique « inscri
 
 Puis retourner le contrat de formation complété et signé à "A Propos 3 allée du stade 22680 Etables/Mer" accompagné du chèque de caution à l’ordre "d’A Propos".
 
-<a href="2016/methodologie-de-la-recherche-et-introduction-aux-traitements-statistiques-avec-le-logiciel-r-appliques-a-l-orthophonie-module-1/contrat-formation-dpc.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">contrat de formation DPC</span></a>
+<a href="2016/methodologie-de-la-recherche-et-introduction-aux-traitements-statistiques-avec-le-logiciel-r-appliques-a-l-orthophonie-module-1/documents/contrat-formation-dpc.pdf"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">contrat de formation DPC</span></a>
 
 ### DPC salariés
 

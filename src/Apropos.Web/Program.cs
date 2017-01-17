@@ -48,15 +48,11 @@ namespace Apropos.Web
             try
             {
                 StartupDomainApplication(service, env);
-                //throw new ArgumentNullException("Bammm Erreur");
             }
             catch(Exception ex)
             {
                 _logger.LogError(new EventId(12, "lecture pour pdf"), ex, "message");
             }
-            //Process.Start("gulp", "htmltopdf");
-
-
             host.Run();
         }
 
@@ -71,7 +67,7 @@ namespace Apropos.Web
             articles.ForEach(article =>
             {
                 DirectoryInfo repertoireDest = CreerRepertoireArticle(article, env);
-                CreerFormationsPdf(article, repertoireDest, env);
+                CreerContratsFormationsHtml(article, repertoireDest, env);
                 _logger.LogInformation($"{i++}/{nombreArticles}: {article.Titre}");
                 CopierImages(article, repertoireDest);
                 CopierPdfs(article, repertoireDest);
@@ -80,76 +76,64 @@ namespace Apropos.Web
 
         private static void CopierPdfs(Article article, DirectoryInfo repertoireDest)
         {
-            string repertoireOriginePdfs = $"{article.Repertoire}/{article.NomFichierSansExtension}";
+            string repertoireOriginePdfs = $"{article.Repertoire}/{article.NomFichierSansExtension}/documents";
             FileInfo[] files = new FileInfo[0];
-            if (File.Exists(repertoireOriginePdfs))
+            if (Directory.Exists(repertoireOriginePdfs))
             {
                 DirectoryInfo di = new DirectoryInfo(repertoireOriginePdfs);
                 files = di.GetFiles();
-            }
-
-            if (files.Length > 0)
-            {
-                _logger.LogInformation($"{files.Length} images à copier");
-                DirectoryInfo repertoireDestImages = repertoireDest.CreateSubdirectory("images");
-                foreach (FileInfo file in files)
+                if (files.Length > 0)
                 {
-                    string cheminImageOrigine = file.FullName;
-                    string cheminImageDestination = $"{repertoireDestImages.FullName}/{file.Name}";
-                    if (!File.Exists(cheminImageDestination))
+                    _logger.LogInformation($"{files.Length} pdfs à copier");
+                    DirectoryInfo repertoireDestPdfs = repertoireDest.CreateSubdirectory("documents");
+                    foreach (FileInfo file in files)
                     {
-                        _logger.LogInformation($"copie de l'image {cheminImageOrigine} vers {cheminImageDestination}");
-                        Image image;
-                        using (FileStream stream = File.OpenRead(cheminImageOrigine))
+                        string cheminPdfOrigine = file.FullName;
+                        string cheminPdfDestination = $"{repertoireDestPdfs.FullName}/{file.Name}";
+                        if (!File.Exists(cheminPdfDestination))
                         {
-                            image = new Image(stream);
-                        }
-                        Image image2 = new Image(image);
-
-                        using (FileStream output = File.OpenWrite(cheminImageDestination))
-                        {
-                            image
-                                .Resize(1024, 0, new BicubicResampler(), false)
-                                .Save(output);
+                            _logger.LogInformation($"copie du pdf {cheminPdfOrigine} vers {cheminPdfDestination}");
+                            File.Copy(cheminPdfOrigine, cheminPdfDestination);
                         }
                     }
                 }
             }
+
         }
 
         private static void CopierImages(Article article, DirectoryInfo repertoireDest)
         {
-            string repertoireOrigineImages = $"{article.Repertoire}/{article.NomFichierSansExtension}";
-            FileInfo[] files = new FileInfo[0];            
+            string repertoireOrigineImages = $"{article.Repertoire}/{article.NomFichierSansExtension}/images";
+            FileInfo[] files = new FileInfo[0];
             if (Directory.Exists(repertoireOrigineImages))
             {
                 DirectoryInfo di = new DirectoryInfo(repertoireOrigineImages);
                 files = di.GetFiles();
-            }
 
-            if (files.Length > 0)
-            {
-                _logger.LogInformation($"{files.Length} images à copier");
-                DirectoryInfo repertoireDestImages = repertoireDest.CreateSubdirectory("images");
-                foreach (FileInfo file in files)
+                if (files.Length > 0)
                 {
-                    string cheminImageOrigine = file.FullName;
-                    string cheminImageDestination = $"{repertoireDestImages.FullName}/{file.Name}";
-                    if (!File.Exists(cheminImageDestination))
+                    _logger.LogInformation($"{files.Length} images à copier");
+                    DirectoryInfo repertoireDestImages = repertoireDest.CreateSubdirectory("images");
+                    foreach (FileInfo file in files)
                     {
-                        _logger.LogInformation($"copie de l'image {cheminImageOrigine} vers {cheminImageDestination}");
-                        Image image;
-                        using (FileStream stream = File.OpenRead(cheminImageOrigine))
+                        string cheminImageOrigine = file.FullName;
+                        string cheminImageDestination = $"{repertoireDestImages.FullName}/{file.Name}";
+                        if (!File.Exists(cheminImageDestination))
                         {
-                            image = new Image(stream);
-                        }
-                        Image image2 = new Image(image);
+                            _logger.LogInformation($"copie de l'image {cheminImageOrigine} vers {cheminImageDestination}");
+                            Image image;
+                            using (FileStream stream = File.OpenRead(cheminImageOrigine))
+                            {
+                                image = new Image(stream);
+                            }
+                            Image image2 = new Image(image);
 
-                        using (FileStream output = File.OpenWrite(cheminImageDestination))
-                        {
-                            image
-                                .Resize(1024, 0, new BicubicResampler(), false)
-                                .Save(output);
+                            using (FileStream output = File.OpenWrite(cheminImageDestination))
+                            {
+                                image
+                                    .Resize(1024, 0, new BicubicResampler(), false)
+                                    .Save(output);
+                            }
                         }
                     }
                 }
@@ -157,37 +141,37 @@ namespace Apropos.Web
         }
         
         /// <summary>
-        /// Retourne le répertoire où ont été créé les pdfs.
         /// </summary>
         /// <param name="article"></param>
         /// <param name="env"></param>
-        /// <param name="logger"></param>
         /// <returns></returns>
-        private static void CreerFormationsPdf(Article article, DirectoryInfo repertoire, IHostingEnvironment env)
-        {            
+        private static void CreerContratsFormationsHtml(Article article, DirectoryInfo repertoire, IHostingEnvironment env)
+        {
+            DirectoryInfo repertoireDest = repertoire.CreateSubdirectory("documents");
+            //DirectoryInfo repertoireDest = new DirectoryInfo(repertoire + "/documents");
             IServiceScopeFactory serviceScopeFactory = InitializeServices();
             ContratFormationView viewModel;
             if (article.HasFinancementDpc)
             {
                 viewModel = ContratFormationView.Create(article, Financement.Dpc);
-                string cheminFichierCree = CreerContratFormationPdf(serviceScopeFactory, repertoire, viewModel, "contrat-formation-dpc", "Contrats/ContratFormationDpcHorsDpc");
+                string cheminFichierCree = CreerContratFormationHtml(serviceScopeFactory, repertoireDest, viewModel, "contrat-formation-dpc", "Contrats/ContratFormationDpcHorsDpc");
                 _logger.LogInformation("création fichier:" + Path.GetFileName(cheminFichierCree));
             }
             if (article.HasFinancementHorsDpc)
             {
                 viewModel = ContratFormationView.Create(article, Financement.HorsDpc);
-                string cheminFichierCree = CreerContratFormationPdf(serviceScopeFactory, repertoire, viewModel, "contrat-formation-hors-dpc", "Contrats/ContratFormationDpcHorsDpc");
+                string cheminFichierCree = CreerContratFormationHtml(serviceScopeFactory, repertoireDest, viewModel, "contrat-formation-hors-dpc", "Contrats/ContratFormationDpcHorsDpc");
                 _logger.LogInformation("création fichier:" + Path.GetFileName(cheminFichierCree));
             }
             if (article.HasFinancementSalarie)
             {
                 viewModel = ContratFormationView.Create(article, Financement.Salarie);
-                string cheminFichierCree = CreerContratFormationPdf(serviceScopeFactory, repertoire, viewModel, "contrat-formation-salarie", "Contrats/ContratFormationSalarie");
+                string cheminFichierCree = CreerContratFormationHtml(serviceScopeFactory, repertoireDest, viewModel, "contrat-formation-salarie", "Contrats/ContratFormationSalarie");
                 _logger.LogInformation("création fichier:" + Path.GetFileName(cheminFichierCree));
             }
         }
 
-        private static string CreerContratFormationPdf(IServiceScopeFactory serviceScopeFactory, DirectoryInfo repertoire, ContratFormationView viewModel, string filename, string template)
+        private static string CreerContratFormationHtml(IServiceScopeFactory serviceScopeFactory, DirectoryInfo repertoire, ContratFormationView viewModel, string filename, string template)
         {
             string modeleHtml = "";
             try

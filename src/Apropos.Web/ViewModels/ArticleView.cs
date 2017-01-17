@@ -80,6 +80,16 @@ namespace Apropos.Web.ViewModels
             return $"{Annee}/{Url}/images/{nomPhoto}";
         }
 
+        public string GetCheminRelatifDocument(string nomDocument)
+        {
+            return $"{Annee}/{Url}/documents/{nomDocument}";
+        }
+
+        public string GetNomDocumentAnnexe(string document)
+        {
+            return document.Replace('-', ' ').Replace(".pdf", "");
+        }
+
         public string GetTaillePhoto(string nomPhoto)
         {            
             string result;
@@ -129,6 +139,8 @@ namespace Apropos.Web.ViewModels
         }
 
         public string RepertoirePhotos { get; private set; }
+        public List<string> DocumentsAnnexes { get; private set; }
+        public string RepertoireDocuments { get; private set; }
 
         private ArticleView(Article article)
         {
@@ -168,6 +180,8 @@ namespace Apropos.Web.ViewModels
             this.TarifUnique = article.TarifUnique;
             AfficherInscriptionEtTarif = GetAfficherInscriptionEtTarif(article.AfficherInscriptionEtTarif);
             this.RepertoirePhotos = $"{article.Repertoire}/{article.Url}/images".Replace("/articles", "").Replace(@"\articles", "");
+            this.RepertoireDocuments = $"{article.Repertoire}/{article.Url}/documents".Replace("/articles", "").Replace(@"\articles", "");
+            this.DocumentsAnnexes = article.DocumentsAnnexes;
         }
 
         private bool GetAfficherInscriptionEtTarif(bool? afficherInscriptionEtTarif)

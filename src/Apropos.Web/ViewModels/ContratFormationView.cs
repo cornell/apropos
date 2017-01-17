@@ -1,10 +1,11 @@
-﻿using System;
-using Apropos.Domain;
+﻿using Apropos.Domain;
 
 namespace Apropos.Web.ViewModels
 {
     public class ContratFormationView
     {
+        private int ACCOMPTE = 120;
+
         public string Duree { get; private set; }
         public int Effectif { get; private set; }
         public string Lieu { get; private set; }
@@ -34,8 +35,8 @@ namespace Apropos.Web.ViewModels
             TarifAdherentSalarie = article.TarifAdherentSalarie;
             TarifNonAdherentLiberal = article.TarifNonAdherentLiberal;
             TarifNonAdherentSalarie = article.TarifNonAdherentSalarie;
-            TarifAdherentLiberalMoinsAccompte = article.TarifAdherentLiberal - 50;
-            TarifNonAdherentLiberalMoinsAccompte = article.TarifNonAdherentLiberal - 50;
+            TarifAdherentLiberalMoinsAccompte = article.TarifAdherentLiberal - ACCOMPTE;
+            TarifNonAdherentLiberalMoinsAccompte = article.TarifNonAdherentLiberal - ACCOMPTE;
             TarifDpc = article.TarifDpc;
         }
 

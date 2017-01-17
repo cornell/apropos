@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'regular';
+    src: url('../../font/sourcesanspro-regular-webfont.woff2') format('woff2'),
+         url('../../font/sourcesanspro-regular-webfont.woff') format('woff'),
+         /*url('../../font/sourcesanspro-regular-webfont.ttf') format('truetype'),*/
+         url('../../font/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+}
+
+@font-face {
+    font-family: 'semibold';
+    src: url('../../font/sourcesanspro-semibold-webfont.woff2') format('woff2'),
+         url('../../font/sourcesanspro-semibold-webfont.woff') format('woff'),
+         /*url('../../font/sourcesanspro-semibold-webfont.ttf') format('truetype'),*/
+         url('../../font/sourcesanspro-semibold-webfont.svg#source_sans_prosemibold') format('svg');
+}
+
+html {
+    font-family: regular;
+    color: #111;    
+}
+
+ol, ul {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+ul>li {
+    margin-left: 20px;
+}
+
+li {
+    list-style-type: circle;
+}
+
+strong {
+    font-style: italic;
+    font-weight: bold;
+    font-variant: small-caps;
+    color: #000;
+    /*text-decoration: underline;*/
+}
+
+/*strong::before,
+strong::after {
+    content: "\"";
+}*/
+
+h1 {
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 80px;
+}
+
+h2 {
+    margin-top: 20px;
+    font-weight: normal;
+    line-height: 1em;
+    page-break-inside: avoid;
+}
+
+h3 {
+    margin-top: 10px;
+    font-weight: normal;
+    line-height: 1em;
+    page-break-inside: avoid;
+}
+
+.keepTogether {
+    page-break-inside:avoid;
+}    
+
+.keepTogether > div {
+    margin-left: 10px;
+}    
+
+.font-secondary {
+    color: gray;
+}
+
+p {
+    margin-left: 10px;
+    margin-top: 10px;
+    line-height: 1.6em;
+}
+
+header {
+    position: relative;
+    color: dimgray;
+    font-size: .9em;
+}
+
+.logo-ogdpc {
+    position: absolute;
+}
+
+.logo-apropos-container {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.apropos-adresse {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 140px;
+}
+
+.numero-prefecture {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 140px;
+}
+
+.signature-apprenant {
+    float: left;
+}
+
+.signature-apropos {
+    float: right;
+    /*margin-top: 10px;*/
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

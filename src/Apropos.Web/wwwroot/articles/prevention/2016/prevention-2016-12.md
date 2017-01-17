@@ -20,6 +20,8 @@ photos:
     - 07-photos-211116-017.jpg
     - 08-photos-211116-024.jpg
     - 09-photos-211116-020.jpg
+documents-annexes:
+    - budget-livres-2016.pdf
 ---
 
 ## En chiffres, c’est…
@@ -65,12 +67,10 @@ photos:
 >
 > Par la suite, la cadre de santé a fait un retour positif sur notre action : les parents comme l'équipe soignante ont été "enchantés de cet échange".
 
-### Vannes, CHBA 
-
 ### Quimper
 > « Des membres de l'équipe de la maternité (aide-soignants, infirmiers, sages-femmes) sont venus à notre rencontre et ont posé des questions sur le langage, la tétine et le pouce, les écrans. Ces échanges ont été très instructifs pour tous, aussi bien le personnel présent que nous, orthophonistes . » 
 
-### Vannes
+### Vannes, CHBA 
 > « Nous avons débattu sur le sens de notre présence,  l’usage de la tétine, l’allaitement, l’intérêt des comptines, les écrans et bien évidemment le livre fut au centre des échanges. 
 >
 > Les rencontres individuelles ont permis de mettre l’accent sur l’intérêt de mettre en contact l’enfant avec les livres dès le plus jeune âge. 
@@ -79,8 +79,4 @@ photos:
 >
 > Nous avions imaginé rencontrer les parents  en groupe et initier quelques comptines puis une lecture au groupe. Finalement chaque rencontre s’est faite à titre individuel. »
 
-## Merci  à tous et à l’année prochaine !
-
-[budget-livres-2016.pdf](budget-livres-2016.pdf)
-
-
+### <p style="text-align: center;">Merci  à tous et à l’année prochaine !</p>

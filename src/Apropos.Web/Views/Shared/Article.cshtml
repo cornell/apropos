@@ -20,5 +20,16 @@
                 <div class="pdf-nomFichier">reglement-interieur-formation-apropos.pdf</div>
             </p>
             }
+            @if (Model.IsAxePrevention)
+            {
+                <h2>Documents annexes</h2>
+                <p>
+                @foreach (var document in Model.DocumentsAnnexes)
+                {
+                    <a href="@Model.GetCheminRelatifDocument(document)"><span class="icon-pdf"></span><span class="pdf-descriptionFichier">@Model.GetNomDocumentAnnexe(document)</span></a>
+                    <div class="pdf-nomFichier">@document</div>
+                }
+                </p>
+            }
         </article>
 

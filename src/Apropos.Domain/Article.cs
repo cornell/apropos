@@ -14,6 +14,7 @@ namespace Apropos.Domain
         private List<string> _photos;
         private List<Financement> _financement;
         private List<string> _animation;
+        private List<string> _documentsAnnexes;
         private static int NOMBRE_DE_MOTS = 20;
         private static Random _random = new Random();
 
@@ -59,6 +60,12 @@ namespace Apropos.Domain
         [YamlMember(Alias = "ogdpc-reference")]
         public string OgdpcReference { get; set; }
 
+        [YamlMember(Alias = "documents-annexes")]
+        public List<string> DocumentsAnnexes
+        {
+            get { return _documentsAnnexes ?? new List<string>(); }
+            set { _documentsAnnexes = value; }
+        }
         public string Duree { get; set; }
 
         public string DatePdf { get; set; }
