@@ -245,6 +245,6 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /src/Apropos.Web/Logs
-/src/Apropos.Web/wwwroot/prevention
-/src/Apropos.Web/wwwroot/formation
-/src/Apropos.Web/wwwroot/recherche
+/src/Apropos.Web/wwwroot/prevention/**/*.html
+/src/Apropos.Web/wwwroot/formation/**/*.html
+/src/Apropos.Web/wwwroot/recherche/**/*.html
