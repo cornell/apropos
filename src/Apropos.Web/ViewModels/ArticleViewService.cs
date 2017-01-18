@@ -21,6 +21,8 @@ namespace Apropos.Web.ViewModels
 
         public ArticleView GetArticle(Article article)
         {
+            if (article == null) return ArticleView.Create(null);
+
             ArticleView result;
             if(_articles.Exists(s => s.Key == article.UrlComplete))
             {

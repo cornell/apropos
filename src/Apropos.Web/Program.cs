@@ -148,7 +148,6 @@ namespace Apropos.Web
         private static void CreerContratsFormationsHtml(Article article, DirectoryInfo repertoire, IHostingEnvironment env)
         {
             DirectoryInfo repertoireDest = repertoire.CreateSubdirectory("documents");
-            //DirectoryInfo repertoireDest = new DirectoryInfo(repertoire + "/documents");
             IServiceScopeFactory serviceScopeFactory = InitializeServices();
             ContratFormationView viewModel;
             if (article.HasFinancementDpc)
@@ -212,6 +211,7 @@ namespace Apropos.Web
             catch(Exception ex)
             {
                 _logger.LogError($"Erreur sur la création du chemin: '{path}'", ex);
+                _logger.LogError(ex.InnerException.ToString());
             }
             return result;
         }

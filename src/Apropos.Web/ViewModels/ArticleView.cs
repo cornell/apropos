@@ -60,6 +60,11 @@ namespace Apropos.Web.ViewModels
             get { return string.IsNullOrEmpty(Departement) == false; }
         }
 
+        public bool HasDocumentsAnnexes
+        {
+            get { return DocumentsAnnexes != null && DocumentsAnnexes.Count > 0; }
+        }
+
         public bool IsAxePrevention
         {
             get { return Axe == Axe.Prevention; }
