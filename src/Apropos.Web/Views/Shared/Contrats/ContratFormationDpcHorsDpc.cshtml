@@ -106,7 +106,18 @@
                     </li>
                     <li>
                         <p>une enveloppe timbrée à son nom et adresse à l’adresse suivante:</p>
-                        <p>A Propos 3 allée du stade 22680 Etables /Mer</p>
+                        @if (Model.Organisateur == "organisateur-hlr")
+                        {
+                            <p><strong>Hélène Le Roux, 3 allée du stade 22680 Etables-sur-Mer</strong></p>
+                        }
+                        @if (Model.Organisateur == "organisateur-kb")
+                        {
+                            <p><strong>Kristell Bourdin, 8 rue Lamennais 22100 Dinan</strong></p>
+                        }
+                        @if (Model.Organisateur == "organisateur-mrf")
+                        {
+                            <p><strong>Muriel Rio-Fiorina, 8 rue Lamennais 22100 Dinan</strong></p>
+                        }
                     </li>
                 </ul>
                 <p>
@@ -133,52 +144,51 @@
                             les adhérents « A Propos » 2017.
                         </li>
                     </ul>}
-                </div>
-                <h2>Article 7 : Renonciation, Interruption et annulation de l’action de formation</h2>
-                <p>
-                    En cas de renonciation du stagiaire dans les 15 jours précédant la date de réalisation de l’action de formation,
-                    sauf cas de force majeure dûment reconnue, les frais d’organisation seront acquis à l'organisme de formation
-                    à titre de dédommagement.
-                </p>
-                <p>
-                    En cas de cessation anticipée de l’action de formation du fait de l'organisme de formation ou l'abandon du stage
-                    par le stagiaire pour un motif autre que la force majeure dûment reconnue, le présent contrat est résilié selon
-                    les modalités financières suivantes :
-                </p>
-                <ul>
-                    <li>Du fait de l’organisme de formation : remboursement au stagiaire de l’intégralité des sommes versées.</li>
-                    <li>
-                        Du fait du stagiaire : l’intégralité des sommes dues correspondant à l’action de formation entamée est conservée
-                        par l’organisme formateur.
-                    </li>
-                </ul>
-                <p>
-                    Si le stagiaire est empêché de suivre la formation par suite de force majeure dûment reconnue, le présent contrat
-                    est résilié.
-                </p>
-                <p>
-                    Dans ce cas, seules les prestations effectivement dispensées sont dues au prorata temporis de leur valeur prévue
-                    au présent contrat.
-                </p>
-                <h2>Article 8 : Cas de différend(s)</h2>
-                <p>
-                    Si une contestation ou un différend n'ont pu être réglés à l'amiable, le Tribunal de la juridiction dont dépend l'organisme
-                    de formation sera seul compétent pour régler le litige.
-                </p>
-                <p>Le stagiaire reconnaît avoir pris connaissance du règlement intérieur.</p>
-                <br><br><br><br>
-                <footer>
-                    <div>Fait en double exemplaire, à Etables, le: <span>............................................................</span></div>
-                    <br>
-                    <br>
-                    <div class="signature-apprenant">Pour le stagiaire<span class="font-secondary"> (nom, prénom et signature)</span></div>
-                    <div class="signature-apropos">
-                        <div>Pour l'organisme de formation</div>
-                        <div> La présidente, Hélène Le Roux</div>
-                        <img src="file:/Projets/apropos/src/Apropos.Web/wwwroot/images/signature-apropos.png" width="325px" alt="signature-apropos">
-                    </div>
-                </footer>
-</section>
-    </body>
-
+        </div>
+        <h2>Article 7 : Renonciation, Interruption et annulation de l’action de formation</h2>
+        <p>
+            En cas de renonciation du stagiaire dans les 15 jours précédant la date de réalisation de l’action de formation,
+            sauf cas de force majeure dûment reconnue, les frais d’organisation seront acquis à l'organisme de formation
+            à titre de dédommagement.
+        </p>
+        <p>
+            En cas de cessation anticipée de l’action de formation du fait de l'organisme de formation ou l'abandon du stage
+            par le stagiaire pour un motif autre que la force majeure dûment reconnue, le présent contrat est résilié selon
+            les modalités financières suivantes :
+        </p>
+        <ul>
+            <li>Du fait de l’organisme de formation : remboursement au stagiaire de l’intégralité des sommes versées.</li>
+            <li>
+                Du fait du stagiaire : l’intégralité des sommes dues correspondant à l’action de formation entamée est conservée
+                par l’organisme formateur.
+            </li>
+        </ul>
+        <p>
+            Si le stagiaire est empêché de suivre la formation par suite de force majeure dûment reconnue, le présent contrat
+            est résilié.
+        </p>
+        <p>
+            Dans ce cas, seules les prestations effectivement dispensées sont dues au prorata temporis de leur valeur prévue
+            au présent contrat.
+        </p>
+        <h2>Article 8 : Cas de différend(s)</h2>
+        <p>
+            Si une contestation ou un différend n'ont pu être réglés à l'amiable, le Tribunal de la juridiction dont dépend l'organisme
+            de formation sera seul compétent pour régler le litige.
+        </p>
+        <p>Le stagiaire reconnaît avoir pris connaissance du règlement intérieur.</p>
+        <br><br><br><br>
+        <footer>
+            <div>Fait en double exemplaire, à Etables, le: <span>............................................................</span></div>
+            <br>
+            <br>
+            <div class="signature-apprenant">Pour le stagiaire<span class="font-secondary"> (nom, prénom et signature)</span></div>
+            <div class="signature-apropos">
+                <div>Pour l'organisme de formation</div>
+                <div> La présidente, Hélène Le Roux</div>
+                <img src="file:/Projets/apropos/src/Apropos.Web/wwwroot/images/signature-apropos.png" width="325px" alt="signature-apropos">
+            </div>
+        </footer>
+    </section>
+</body>
 </html>

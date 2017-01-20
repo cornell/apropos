@@ -12,18 +12,6 @@
 <div class="inscriptionTarif">
     <h2>Inscription et tarifs</h2>
     <p>Veuillez nous retourner le contrat ou la convention correspondant à votre situation, signé, accompagné du chèque de réservation et de l’enveloppe timbrée à votre nom et adresse (seuls les dossiers complets seront retenus)</p>
-    <h3>Adresse</h3>
-    <div>
-        @if(Model.Organisateur == "organisateur-hlr") { 
-        <div class="articleDetail-adresse">Hélène Le Roux<br>3 allée du stade<br>22680 Etables-sur-Mer</div>
-        }
-        @if (Model.Organisateur == "organisateur-kb") {
-        <div class="articleDetail-adresse">Kristell Bourdin<br>8 rue Lamennais<br>22100 Dinan</div>
-        }
-        @if (Model.Organisateur == "organisateur-mrf") {
-        <div class="articleDetail-adresse">Muriel Rio-Fiorina<br>8 rue Lamennais<br>22100 Dinan</div>
-        }
-    </div>
     @if (Model.HasFinancementDpc) {
     <h3>DPC</h3>
     <div class="articleDetail-inscription">

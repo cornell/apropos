@@ -7,8 +7,7 @@ date:
 dateAffichage: 17 novembre 2016
 organisateur: organisateur-kb
 resume:
-    - <i>10 maternités engagées en Bretagne, 50 orthophonistes participantes, + de 120 livres doudous offerts...</i>
-    - Merci  à tous et à l’année prochaine !
+    - 10 maternités engagées en Bretagne, 50 orthophonistes participantes, + de 120 livres doudous offerts...
 # photos de suite au déroulement de la formation
 photos:
     - 01-DSC00820.JPG
@@ -20,8 +19,6 @@ photos:
     - 07-photos-211116-017.jpg
     - 08-photos-211116-024.jpg
     - 09-photos-211116-020.jpg
-documents-annexes:
-    - budget-livres-2016.pdf
 ---
 
 ## En chiffres, c’est…
@@ -78,5 +75,3 @@ documents-annexes:
 > Myriam avait eu la bonne idée d’emprunter tout un stock de livres pour enfants à la médiathèque afin d’élargir les suggestions, ils étaient mis à disposition dans une corbeille et certains titres ont évoqué quelques souvenirs ou commentaires. L'ambiance était bon enfant et la parole a bien circulé.  
 >
 > Nous avions imaginé rencontrer les parents  en groupe et initier quelques comptines puis une lecture au groupe. Finalement chaque rencontre s’est faite à titre individuel. »
-
-### <p style="text-align: center;">Merci  à tous et à l’année prochaine !</p>

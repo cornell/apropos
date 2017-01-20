@@ -21,6 +21,7 @@ namespace Apropos.Web.ViewModels
         public int TarifNonAdherentLiberalMoinsAccompte { get; private set; }
         public bool AfficherInscriptionEtTarif { get; private set; }
         public int TarifDpc { get; private set; }
+        public string Organisateur { get; private set; }
 
         private ContratFormationView(Article article, Financement financement)
         {
@@ -38,6 +39,7 @@ namespace Apropos.Web.ViewModels
             TarifAdherentLiberalMoinsAccompte = article.TarifAdherentLiberal - ACCOMPTE;
             TarifNonAdherentLiberalMoinsAccompte = article.TarifNonAdherentLiberal - ACCOMPTE;
             TarifDpc = article.TarifDpc;
+            Organisateur = article.Organisateur;
         }
 
         internal static ContratFormationView Create(Article article, Financement financement)

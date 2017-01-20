@@ -1,7 +1,7 @@
 ﻿---
-titre: Troubles phasiques d'origine pragmatique de la théorie à la réeducation
+titre: Troubles phasiques d'origine pragmatique de la théorie à la rééducation
 axe: formation
-ville: Saint-Brieux
+ville: Saint-Brieuc
 departement: 22
 animation:
     - Claire Saison, orthophoniste, Docteur en Sciences du Langage    
@@ -9,7 +9,7 @@ date:
     - 2017-01-13
     - 2017-01-13
 dateAffichage: 9-10 mars 2017
-organisateur: organisateur-hl
+organisateur: organisateur-hlr
 financement:
     - dpc
     - horsDpc
