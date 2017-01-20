@@ -20,8 +20,6 @@ datePdf: vendredi 19 et samedi 20 mai 2017
 horaire: 9h à 17h30 (repas non compris - possibilité de pique-niquer sur place)
 lieu: Maison de quartier de la Touche - Place simone de Beauvoir - Rennes
 effectif: 20
-documents-annexes:
-    - budget-livres-2016.pdf
 ---
 
 ## Objectifs pédagogiques
