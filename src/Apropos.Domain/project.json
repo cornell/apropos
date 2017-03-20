@@ -14,9 +14,9 @@
         "YamlDotNet": "3.9.0"
     },
 
-    "frameworks": {
-        "netcoreapp1.0": {
-            "imports": "dnxcore50"
-        }
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
     }
+  }
 }

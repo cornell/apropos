@@ -24,11 +24,11 @@
       "Microsoft.Extensions.Configuration.Json": "1.0.0",
       "ImageSharp": "1.0.0-*"
     },
-    "frameworks": {
-        "netcoreapp1.0": {
-            "imports": "dnxcore50"
-        }
-    },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  },
 
     "buildOptions": {
         "emitEntryPoint": true,
